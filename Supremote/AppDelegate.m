@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Classy/Classy.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+#if TARGET_IPHONE_SIMULATOR
+    [CASStyler defaultStyler].watchFilePath = @"/Users/Lambda/Desktop/Projects/Supremote/Supremote/stylesheet.cas";
+#endif
+    
+    
     return YES;
 }
 
