@@ -1,0 +1,44 @@
+PODS:
+  - AKPickerView (0.2.0)
+  - BFKit (1.3.1)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - Classy (0.2.4)
+  - ReactiveCocoa (2.1.8):
+    - ReactiveCocoa/Core (= 2.1.8)
+    - ReactiveCocoa/no-arc (= 2.1.8)
+  - ReactiveCocoa/Core (2.1.8):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.1.8)
+  - SDiPhoneVersion (1.1.1)
+
+DEPENDENCIES:
+  - AKPickerView
+  - BFKit
+  - BlocksKit
+  - Classy
+  - ReactiveCocoa
+  - SDiPhoneVersion
+
+SPEC CHECKSUMS:
+  AKPickerView: 9130c48bfa7436c66b81b779fe0c2bebbc44c85f
+  BFKit: b7c470c851666cccc9d3e8f09f32b2e3d3506d9f
+  BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
+  Classy: 8c8f835d51e20d25e9cce0d864fba5bf1cef6070
+  ReactiveCocoa: 399d3ad0c8ac73d79bed5bcd076a04f46ec635fc
+  SDiPhoneVersion: 21958fa669603b61a4052c459a365259380c394c
+
+COCOAPODS: 0.35.0
