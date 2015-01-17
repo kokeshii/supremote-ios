@@ -7,13 +7,7 @@
 //
 
 #import "SPLoginViewController.h"
-#import "SPHTTPClient.h"
 
-typedef NS_ENUM(NSInteger, RWTwitterInstantError) {
-    SPErrorLoginInvalid
-};
-
-static NSString * const SPSupremoteDomain = @"Supremote";
 
 @interface SPLoginViewController ()
 

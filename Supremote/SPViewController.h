@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RACEXTScope.h"
+#import "SPHTTPClient.h"
+
+typedef NS_ENUM(NSInteger, RWTwitterInstantError) {
+    SPErrorLoginInvalid,
+    SPErrorUnauthorized
+};
+
+static NSString * const SPSupremoteDomain = @"Supremote";
+
 
 @interface SPViewController : UIViewController
 
