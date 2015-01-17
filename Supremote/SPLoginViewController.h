@@ -12,5 +12,6 @@
 @interface SPLoginViewController : SPViewController
 
 @property (nonatomic, weak) IBOutlet UIButton *loginButton, *signupButton;
+@property (nonatomic, weak) IBOutlet UITextField *usernameField, *passwordField;
 
 @end

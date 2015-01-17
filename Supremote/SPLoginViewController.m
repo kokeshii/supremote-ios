@@ -25,28 +25,27 @@ static NSString * const SPSupremoteDomain = @"Supremote";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    @weakify(self)
-//    [[[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-//     then:^RACSignal *{
-//         @strongify(self)
-//         return [self loginSignal:@"admin" password:@"admin"];
-//     }]
-//     subscribeNext:^(id x) {
-//         NSLog(@"LOGIN SUCCESFUL");
-//     } error:^(NSError *error) {
-//        NSLog(@"LOGIN ERROR");
-//     }];
+
+    // LoginSuccesfulSegue
    
     
-    [[[self.loginButton
+    
+    [[[[self.loginButton
      rac_signalForControlEvents:UIControlEventTouchUpInside]
      flattenMap:^RACStream *(id value) {
-         return [self loginSignal:@"admin" password:@"admin"];
+         return [[self loginSignal] catch:^RACSignal *(NSError *error) {
+             [self showAlertWithTitle:@"Error"
+                              message:@"This username/password combination is not correct. Please try again."];
+             return [RACSignal return:nil];
+         }];
+     }] filter:^BOOL(id value) {
+         return value != nil;
      }] subscribeNext:^(id x) {
-         NSLog(@"LOGIN SUCCESFUL");
-     } error:^(NSError *error) {
-         NSLog(@"LOGIN FAILED");
+         [self performSegueWithIdentifier:@"LoginSuccesfulSegue" sender:self];
      }];
+    
+    
+   //  [self performSegueWithIdentifier:@"LoginSuccesfulSegue" sender:self];
     
     [[self.signupButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
@@ -66,24 +65,18 @@ static NSString * const SPSupremoteDomain = @"Supremote";
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (RACSignal *) loginSignal:(NSString *)username password:(NSString *)password {
+- (RACSignal *) loginSignal {
     
     NSError *invalidLoginError = [NSError errorWithDomain:SPSupremoteDomain code:SPErrorLoginInvalid userInfo:nil];
+    
+    NSString *username = self.usernameField.text;
+    NSString *password = self.passwordField.text;
     
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         [[SPHTTPClient sharedClient] loginWithUsername:username password:password success:^(id responseArray) {
-            [subscriber sendNext:nil];
+            [subscriber sendNext:responseArray];
             [subscriber sendCompleted];
         } error:^(NSError *errorInfo) {
             [subscriber sendError:invalidLoginError];
