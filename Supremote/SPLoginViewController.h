@@ -11,4 +11,6 @@
 
 @interface SPLoginViewController : SPViewController
 
+@property (nonatomic, weak) IBOutlet UIButton *loginButton, *signupButton;
+
 @end
