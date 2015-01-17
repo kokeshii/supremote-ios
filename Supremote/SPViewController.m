@@ -32,6 +32,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    
+    [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+    
+}
+
+
 /*
 #pragma mark - Navigation
 
