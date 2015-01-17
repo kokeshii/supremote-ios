@@ -1,8 +1,10 @@
 platform :ios, '7.0'
- 
+
+pod 'AFNetworking'
 pod 'ReactiveCocoa'
 pod 'BlocksKit'
 pod 'AKPickerView'
 pod 'BFKit'
 pod 'Classy'
 pod 'SDiPhoneVersion'
+pod 'IQKeyboardManager'
