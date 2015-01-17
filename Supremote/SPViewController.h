@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "RACEXTScope.h"
 
 @interface SPViewController : UIViewController
 
