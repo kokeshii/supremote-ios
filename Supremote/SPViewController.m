@@ -8,6 +8,7 @@
 
 #import "SPViewController.h"
 
+
 @interface SPViewController ()
 
 @end
@@ -17,7 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"SETNEEDS!");
     [self setNeedsStatusBarAppearanceUpdate];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
