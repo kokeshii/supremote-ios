@@ -12,6 +12,12 @@
 		8B2B36B61A69CB7B00282A79 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36B51A69CB7B00282A79 /* SPViewController.m */; };
 		8B2B36BB1A69CC4D00282A79 /* SPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36BA1A69CC4D00282A79 /* SPLoginViewController.m */; };
 		8B2B36C01A69EE7A00282A79 /* SPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36BF1A69EE7A00282A79 /* SPHTTPClient.m */; };
+		8B2B36C31A6B0AEB00282A79 /* SPRemoteListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36C21A6B0AEB00282A79 /* SPRemoteListTableViewController.m */; };
+		8B2B36C61A6B0B5A00282A79 /* SPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36C51A6B0B5A00282A79 /* SPTableViewController.m */; };
+		8B2B36C91A6B269700282A79 /* SPRemoteLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36C81A6B269700282A79 /* SPRemoteLabelCell.m */; };
+		8B2B36CC1A6B26E700282A79 /* SPRemoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36CB1A6B26E700282A79 /* SPRemoteCell.m */; };
+		8B2B36D11A6B278F00282A79 /* SPRemoteSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36D01A6B278F00282A79 /* SPRemoteSwitchCell.m */; };
+		8B2B36D41A6B2A5900282A79 /* SPRemoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36D31A6B2A5900282A79 /* SPRemoteTableViewController.m */; };
 		8B9E547D1A6990B800E0D8A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E547C1A6990B800E0D8A3 /* main.m */; };
 		8B9E54801A6990B800E0D8A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E547F1A6990B800E0D8A3 /* AppDelegate.m */; };
 		8B9E54831A6990B800E0D8A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E54821A6990B800E0D8A3 /* ViewController.m */; };
@@ -42,6 +48,18 @@
 		8B2B36BA1A69CC4D00282A79 /* SPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLoginViewController.m; sourceTree = "<group>"; };
 		8B2B36BE1A69EE7A00282A79 /* SPHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHTTPClient.h; sourceTree = "<group>"; };
 		8B2B36BF1A69EE7A00282A79 /* SPHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHTTPClient.m; sourceTree = "<group>"; };
+		8B2B36C11A6B0AEB00282A79 /* SPRemoteListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteListTableViewController.h; sourceTree = "<group>"; };
+		8B2B36C21A6B0AEB00282A79 /* SPRemoteListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteListTableViewController.m; sourceTree = "<group>"; };
+		8B2B36C41A6B0B5A00282A79 /* SPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTableViewController.h; sourceTree = "<group>"; };
+		8B2B36C51A6B0B5A00282A79 /* SPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTableViewController.m; sourceTree = "<group>"; };
+		8B2B36C71A6B269700282A79 /* SPRemoteLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteLabelCell.h; sourceTree = "<group>"; };
+		8B2B36C81A6B269700282A79 /* SPRemoteLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteLabelCell.m; sourceTree = "<group>"; };
+		8B2B36CA1A6B26E700282A79 /* SPRemoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteCell.h; sourceTree = "<group>"; };
+		8B2B36CB1A6B26E700282A79 /* SPRemoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteCell.m; sourceTree = "<group>"; };
+		8B2B36CF1A6B278F00282A79 /* SPRemoteSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteSwitchCell.h; sourceTree = "<group>"; };
+		8B2B36D01A6B278F00282A79 /* SPRemoteSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteSwitchCell.m; sourceTree = "<group>"; };
+		8B2B36D21A6B2A5900282A79 /* SPRemoteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteTableViewController.h; sourceTree = "<group>"; };
+		8B2B36D31A6B2A5900282A79 /* SPRemoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteTableViewController.m; sourceTree = "<group>"; };
 		8B9E54771A6990B800E0D8A3 /* Supremote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supremote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9E547B1A6990B800E0D8A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B9E547C1A6990B800E0D8A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -107,6 +125,8 @@
 			children = (
 				8B2B36B41A69CB7B00282A79 /* SPViewController.h */,
 				8B2B36B51A69CB7B00282A79 /* SPViewController.m */,
+				8B2B36C41A6B0B5A00282A79 /* SPTableViewController.h */,
+				8B2B36C51A6B0B5A00282A79 /* SPTableViewController.m */,
 			);
 			name = Abstract;
 			sourceTree = "<group>";
@@ -116,8 +136,33 @@
 			children = (
 				8B2B36B91A69CC4D00282A79 /* SPLoginViewController.h */,
 				8B2B36BA1A69CC4D00282A79 /* SPLoginViewController.m */,
+				8B2B36C11A6B0AEB00282A79 /* SPRemoteListTableViewController.h */,
+				8B2B36C21A6B0AEB00282A79 /* SPRemoteListTableViewController.m */,
+				8B2B36D21A6B2A5900282A79 /* SPRemoteTableViewController.h */,
+				8B2B36D31A6B2A5900282A79 /* SPRemoteTableViewController.m */,
 			);
 			name = Concrete;
+			sourceTree = "<group>";
+		};
+		8B2B36CD1A6B274B00282A79 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B2B36CE1A6B275400282A79 /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8B2B36CE1A6B275400282A79 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8B2B36C71A6B269700282A79 /* SPRemoteLabelCell.h */,
+				8B2B36C81A6B269700282A79 /* SPRemoteLabelCell.m */,
+				8B2B36CA1A6B26E700282A79 /* SPRemoteCell.h */,
+				8B2B36CB1A6B26E700282A79 /* SPRemoteCell.m */,
+				8B2B36CF1A6B278F00282A79 /* SPRemoteSwitchCell.h */,
+				8B2B36D01A6B278F00282A79 /* SPRemoteSwitchCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		8B9E546E1A6990B800E0D8A3 = {
@@ -155,6 +200,7 @@
 				8B9E547A1A6990B800E0D8A3 /* Supporting Files */,
 				8B2B36BE1A69EE7A00282A79 /* SPHTTPClient.h */,
 				8B2B36BF1A69EE7A00282A79 /* SPHTTPClient.m */,
+				8B2B36CD1A6B274B00282A79 /* Views */,
 			);
 			path = Supremote;
 			sourceTree = "<group>";
@@ -321,11 +367,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2B36CC1A6B26E700282A79 /* SPRemoteCell.m in Sources */,
 				8B2B36BB1A69CC4D00282A79 /* SPLoginViewController.m in Sources */,
 				8B9E54831A6990B800E0D8A3 /* ViewController.m in Sources */,
 				8B9E54801A6990B800E0D8A3 /* AppDelegate.m in Sources */,
 				8B9E547D1A6990B800E0D8A3 /* main.m in Sources */,
+				8B2B36C61A6B0B5A00282A79 /* SPTableViewController.m in Sources */,
+				8B2B36D41A6B2A5900282A79 /* SPRemoteTableViewController.m in Sources */,
+				8B2B36C91A6B269700282A79 /* SPRemoteLabelCell.m in Sources */,
 				8B2B36B61A69CB7B00282A79 /* SPViewController.m in Sources */,
+				8B2B36C31A6B0AEB00282A79 /* SPRemoteListTableViewController.m in Sources */,
+				8B2B36D11A6B278F00282A79 /* SPRemoteSwitchCell.m in Sources */,
 				8B2B36C01A69EE7A00282A79 /* SPHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
