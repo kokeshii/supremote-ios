@@ -11,6 +11,7 @@
 		8B2B36B21A69C71C00282A79 /* stylesheet.cas in Resources */ = {isa = PBXBuildFile; fileRef = 8B2B36B11A69C71C00282A79 /* stylesheet.cas */; };
 		8B2B36B61A69CB7B00282A79 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36B51A69CB7B00282A79 /* SPViewController.m */; };
 		8B2B36BB1A69CC4D00282A79 /* SPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36BA1A69CC4D00282A79 /* SPLoginViewController.m */; };
+		8B2B36C01A69EE7A00282A79 /* SPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36BF1A69EE7A00282A79 /* SPHTTPClient.m */; };
 		8B9E547D1A6990B800E0D8A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E547C1A6990B800E0D8A3 /* main.m */; };
 		8B9E54801A6990B800E0D8A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E547F1A6990B800E0D8A3 /* AppDelegate.m */; };
 		8B9E54831A6990B800E0D8A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E54821A6990B800E0D8A3 /* ViewController.m */; };
@@ -39,6 +40,8 @@
 		8B2B36B51A69CB7B00282A79 /* SPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPViewController.m; sourceTree = "<group>"; };
 		8B2B36B91A69CC4D00282A79 /* SPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLoginViewController.h; sourceTree = "<group>"; };
 		8B2B36BA1A69CC4D00282A79 /* SPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLoginViewController.m; sourceTree = "<group>"; };
+		8B2B36BE1A69EE7A00282A79 /* SPHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHTTPClient.h; sourceTree = "<group>"; };
+		8B2B36BF1A69EE7A00282A79 /* SPHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHTTPClient.m; sourceTree = "<group>"; };
 		8B9E54771A6990B800E0D8A3 /* Supremote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supremote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9E547B1A6990B800E0D8A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B9E547C1A6990B800E0D8A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				8B9E54871A6990B800E0D8A3 /* Images.xcassets */,
 				8B9E54891A6990B800E0D8A3 /* LaunchScreen.xib */,
 				8B9E547A1A6990B800E0D8A3 /* Supporting Files */,
+				8B2B36BE1A69EE7A00282A79 /* SPHTTPClient.h */,
+				8B2B36BF1A69EE7A00282A79 /* SPHTTPClient.m */,
 			);
 			path = Supremote;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				8B9E54801A6990B800E0D8A3 /* AppDelegate.m in Sources */,
 				8B9E547D1A6990B800E0D8A3 /* main.m in Sources */,
 				8B2B36B61A69CB7B00282A79 /* SPViewController.m in Sources */,
+				8B2B36C01A69EE7A00282A79 /* SPHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
