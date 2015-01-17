@@ -37,7 +37,12 @@
     [self POST:@"auth/" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSString *token = ((NSDictionary *)responseObject)[@"token"];
-        self.accessToken = token;
+        
+        // Set to JSON Because subsequent requests will be JSON
+        self.requestSerializer = [AFJSONRequestSerializer serializer];
+        // Set access token, which also sets the Authorization token value on the request serializer.
+        self.accessToken = [NSString stringWithFormat:@"Token %@", token];
+        [self.requestSerializer setValue:self.accessToken forHTTPHeaderField:@"Authorization"];
         
         successBlock(responseObject);
         
@@ -45,16 +50,8 @@
         errorBlock(error);
     }];
     
-    // Set JSON Request Serializer.
-    
-    self.requestSerializer = [AFJSONRequestSerializer serializer];
-    
 }
 
-- (void) setAccessToken:(NSString *)accessToken {
-    _accessToken = accessToken;
-    [self.requestSerializer setValue:accessToken forHTTPHeaderField:accessToken];
-}
 
 - (void) getProfileInformationWithSuccess:(objectBlock)successBlock error:(errorBlock)errorBlock {
     
