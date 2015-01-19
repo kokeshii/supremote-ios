@@ -2,6 +2,5 @@ UINavigationBar {
     bar-tint-color #333333
     title-text-attributes: @{
         foreground-color: white
-        font: HelveticaNeue 21
     }
 }
