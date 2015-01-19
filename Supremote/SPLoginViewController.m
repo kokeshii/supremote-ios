@@ -69,13 +69,22 @@
     
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
-        [[SPHTTPClient sharedClient] loginWithUsername:username password:password success:^(id responseArray) {
-            [subscriber sendNext:responseArray];
-            [subscriber sendCompleted];
-        } error:^(NSError *errorInfo) {
-            [subscriber sendError:invalidLoginError];
-        }];
+        NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:@"SPAuthToken"];
         
+        if (!token) {
+            [[SPHTTPClient sharedClient] loginWithUsername:username password:password success:^(id responseArray) {
+                [[NSUserDefaults standardUserDefaults] setObject:responseArray forKey:@"SPAuthToken"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                [subscriber sendNext:responseArray];
+                [subscriber sendCompleted];
+            } error:^(NSError *errorInfo) {
+                [subscriber sendError:invalidLoginError];
+            }];
+        } else {
+            [[SPHTTPClient sharedClient] setAccessToken:token];
+            [subscriber sendNext:token];
+            [subscriber sendCompleted];
+        }
         return nil;
         
     }];
