@@ -38,18 +38,25 @@
         
         NSString *token = ((NSDictionary *)responseObject)[@"token"];
         
-        // Set to JSON Because subsequent requests will be JSON
-        self.requestSerializer = [AFJSONRequestSerializer serializer];
-        // Set access token, which also sets the Authorization token value on the request serializer.
-        self.accessToken = [NSString stringWithFormat:@"Token %@", token];
-        [self.requestSerializer setValue:self.accessToken forHTTPHeaderField:@"Authorization"];
+        self.accessToken = token;
         
-        successBlock(responseObject);
+        successBlock(token);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         errorBlock(error);
     }];
     
+}
+
+- (void) setAccessToken:(NSString *)accessToken {
+    // Set JSON Request serializer
+    self.requestSerializer = [AFJSONRequestSerializer serializer];
+    // Set the access token iVar
+    _accessToken = accessToken;
+    // Set the HTTP header field.
+    [self.requestSerializer
+                            setValue:[NSString stringWithFormat:@"Token %@", accessToken]
+                            forHTTPHeaderField:@"Authorization"];
 }
 
 
@@ -85,7 +92,7 @@
     
     NSString *path = [NSString stringWithFormat:@"remotes/%@/", remoteId];
     
-    [self GET:path parameters:path success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self GET:path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         errorBlock(error);
