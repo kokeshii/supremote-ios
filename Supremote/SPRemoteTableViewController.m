@@ -7,31 +7,117 @@
 //
 
 #import "SPRemoteTableViewController.h"
+#import "RMPickerViewController.h"
 #import "SPRemoteLabelCell.h"
 #import "SPRemoteSwitchCell.h"
 #import "SPRemoteActionCell.h"
+#import "SPRemoteTextInputCell.h"
 
-@interface SPRemoteTableViewController ()
-@property (nonatomic, strong) NSDictionary *remote;
+#import "SPMultipleChoiceDelegate.h"
+#import "SPNumberRangeDelegate.h"
+#import "SPRemote.h"
+
+@interface SPRemoteTableViewController () <RMPickerViewControllerDelegate, UITextFieldDelegate>
+@property (nonatomic, strong) SPRemote *remote;
+@property (nonatomic, strong) NSString *transitionKey;
+@property (nonatomic, strong) SPPickerDelegate *pickerDelegate;
+@property (nonatomic, weak) NSString *modifyingKey;
 @end
 
 @implementation SPRemoteTableViewController
+
+
+- (void) textFieldDidBeginEditing:(UITextField *)textField {
+    
+}
+
+- (void) textFieldDidEndEditing:(UITextField *)textField {
+    
+    [self.remote setCurrentValue:textField.text forKey:self.modifyingKey];
+    self.modifyingKey = nil;
+    textField.delegate = nil;
+    textField.userInteractionEnabled = NO;
+    [self.tableView reloadData];
+    [self updateRemoteValues];
+}
+
+- (void) updateRemoteValues {
+    
+    [[self signalForUpdatingRemoteValues] subscribeNext:^(id x) {
+        NSLog(@"RESPONSE: %@", x);
+        
+        if ([x objectForKey:@"error"]) {
+            [self showAlertWithTitle:@"Oops!" message:x[@"error"]];
+            [self loadRemote];
+        } else {
+            // If there's no error, commit the remote values
+            [self.remote commit];
+        }
+        
+    } error:^(NSError *error) {
+        [self showAlertWithTitle:@"Connection Unavailable" message:@"Please check your internet connection and try again."];
+
+        [self.remote rollback];
+        [self.tableView reloadData];
+    }];
+    
+}
+
+
+- (void) loadRemote {
+    NSLog(@"RELOADING REMOTE");
+    
+    @weakify(self)
+    [[self signalForGettingRemote] subscribeNext:^(id x) {
+        @strongify(self)
+        self.remote = [SPRemote remoteFromDictionary:x];
+        self.title = [self.remote name];
+        [self.tableView reloadData];
+    } error:^(NSError *error) {
+        [self showAlertWithTitle:@"Connection Unavailable" message:@"Please check your internet connection and try again."];
+    }];
+}
 
 - (void) viewDidLoad {
     [super viewDidLoad];
     
     // Get Remote
+    [self loadRemote];
     
-    @weakify(self)
-    [[self signalForGettingRemote] subscribeNext:^(id x) {
-        @strongify(self)
-        self.remote = x;
-        self.title = self.remote[@"name"];
-        [self.tableView reloadData];
-    } error:^(NSError *error) {
-        NSLog(@"BYE BYE!!!");
+    
+}
+
+- (RACSignal *) signalForUpdatingRemoteValues {
+    
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        [[SPHTTPClient sharedClient] saveRemoteValuesForRemoteWithId:[self.remote remoteId] values:[self.remote values] success:^(id responseArray) {
+            [subscriber sendNext:responseArray];
+            [subscriber sendCompleted];
+        } error:^(NSError *errorInfo) {
+            [subscriber sendError:errorInfo];
+        }];
+        
+        return nil;
+        
     }];
     
+}
+
+- (RACSignal *) signalForPerformingAction:(NSString *)actionName {
+    
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        [[SPHTTPClient sharedClient] triggerAction:actionName forRemoteWithId:[self.remote remoteId] success:^(id responseArray) {
+            [subscriber sendNext:responseArray];
+            [subscriber sendCompleted];
+        } error:^(NSError *errorInfo) {
+            [subscriber sendError:errorInfo];
+        }];
+        
+        return nil;
+        
+    }];
     
 }
 
@@ -50,36 +136,46 @@
     
 }
 
+#pragma mark - RMPickerViewController Delegates
+- (void)pickerViewController:(RMPickerViewController *)vc didSelectRows:(NSArray  *)selectedRows {
+    //Do something
 
-- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"DID SELECT ROW: %@", selectedRows);
     
-    NSString *fieldKey = [self fieldKeyForIndex:indexPath.row];
-    NSDictionary *fieldDict = [self fields][fieldKey];
+    NSString *optionValue = [self.pickerDelegate pickerView:vc.picker titleForRow:[selectedRows[0] integerValue] forComponent:0];
+    [self.remote setCurrentValue:optionValue forKey:self.modifyingKey];
+    self.modifyingKey = nil;
+    [self.tableView reloadData];
+    [self updateRemoteValues];
     
-    NSString *cellId = [self cellIdentifierForRemoteField:fieldDict];
-    
-    SPRemoteCell *remoteCell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    
-    remoteCell.titleLabel.text = fieldDict[@"title"];
-    remoteCell.descriptionLabel.text = fieldDict[@"description"];
-
-    [self setValueForRemoteCell:remoteCell fieldDictionary:fieldDict key:fieldKey];
-    
-    return remoteCell;
 }
 
+- (void)pickerViewControllerDidCancel:(RMPickerViewController *)vc {
+    //Do something else
+    
+    NSLog(@"DID CANCEL");
+}
+
+
+
+#pragma mark - Remote-Table utilities
 
 - (void) setValueForRemoteCell:(SPRemoteCell *)cell fieldDictionary:(NSDictionary *)fieldDictionary key:(NSString *)key {
     
     NSString *fieldType = (NSString *)fieldDictionary[@"type"];
     
-    if ([fieldType isEqualToString:@"text"] ||
-        [fieldType isEqualToString:@"multiple"] ||
+    
+    if ([fieldType isEqualToString:@"text"]) {
+        
+        SPRemoteTextInputCell *textCell = (SPRemoteTextInputCell *)cell;
+        textCell.textField.text = [self.remote getCurrentValueForKey:key];
+        
+    } else if ([fieldType isEqualToString:@"multiple"] ||
         [fieldType isEqualToString:@"number"]) {
         
         SPRemoteLabelCell *labelCell = (SPRemoteLabelCell *)cell;
         
-        id fieldValue = [self currentValues][key];
+        id fieldValue = [self.remote getCurrentValueForKey:key];
         
         labelCell.valueLabel.text = [NSString stringWithFormat:@"%@", fieldValue];
        
@@ -87,77 +183,150 @@
     } else if([fieldType isEqualToString:@"boolean"]) {
         SPRemoteSwitchCell *switchCell = (SPRemoteSwitchCell *)cell;
         
-        BOOL fieldValue = [[self currentValues][key] boolValue];
+        BOOL fieldValue = [[self.remote getCurrentValueForKey:key] boolValue];
         [switchCell.valueSwitch setOn:fieldValue animated:YES];
     }
     
 }
 
-- (NSString *) cellIdentifierForRemoteField:(NSDictionary *)remote {
+
+#pragma mark - UITableViewController Delegate
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     
-    NSString *fieldType = (NSString *)remote[@"type"];
+    NSString *fieldKey = [self.remote keyForFieldWithIndex:indexPath.row];
+    NSDictionary *fieldDict = [self.remote fieldForKey:fieldKey];
     
-    if ([fieldType isEqualToString:@"text"]) {
-        return @"SPRemoteLabelCell";
-    } else if ([fieldType isEqualToString:@"multiple"]) {
-        return @"SPRemoteLabelCell";
-    } else if([fieldType isEqualToString:@"number"]) {
-        return @"SPRemoteLabelCell";
-    } else if([fieldType isEqualToString:@"boolean"]) {
-        return @"SPRemoteSwitchCell";
-    } else if([fieldType isEqualToString:@"action"]) {
-        return @"SPRemoteActionCell";
+    SPRemoteFieldType fieldType = [self.remote typeOfFieldWithKey:fieldKey];
+    
+    NSLog(@"SETTING MODIFIYNG KEY TO %@", fieldKey);
+    self.modifyingKey = fieldKey;
+
+    if (fieldType == SPRemoteFieldTypeText) {
+        SPRemoteTextInputCell *textInputCell = (SPRemoteTextInputCell *)cell;
+        textInputCell.maxLength = [fieldDict[@"max-length"] integerValue];
+        
+        textInputCell.textField.userInteractionEnabled = YES;
+        textInputCell.textField.delegate = self;
+        [textInputCell.textField becomeFirstResponder];
+        
+    } else if (fieldType == SPRemoteFieldTypeMultiple || fieldType == SPRemoteFieldTypeNumber) {
+        RMPickerViewController *pickerVC = [RMPickerViewController pickerController];
+        pickerVC.delegate = self;
+        
+        if (fieldType == SPRemoteFieldTypeNumber) {
+            NSArray *numberRange = fieldDict[@"range"];
+            self.pickerDelegate = [SPNumberRangeDelegate delegateWithLowerLimit:[numberRange[0]integerValue] upperLimit:[numberRange[1] integerValue]];
+        } else {
+            NSArray *choices = fieldDict[@"choices"];
+            self.pickerDelegate = [SPMultipleChoiceDelegate delegateWithOptions:choices];
+        }
+        
+        pickerVC.picker.delegate = self.pickerDelegate;
+        pickerVC.picker.dataSource = self.pickerDelegate;
+        [pickerVC show];
+        
+    } else if (fieldType == SPRemoteFieldTypeBoolean) {
+        SPRemoteSwitchCell *switchCell = (SPRemoteSwitchCell *)cell;
+        
+        [switchCell.valueSwitch setOn:!switchCell.valueSwitch.on animated:YES];
+        
+        [self.remote setCurrentValue:@(switchCell.valueSwitch.on) forKey:fieldKey];
+        [self updateRemoteValues];
+        
+    } else if (fieldType == SPRemoteFieldTypeAction) {
+        
+        [[self signalForPerformingAction:fieldKey] subscribeNext:^(id x) {
+            
+            if ([x objectForKey:@"error"]) {
+                [self showAlertWithTitle:@"Oops!" message:x[@"error"]];
+                [self loadRemote];
+            }
+            
+        } error:^(NSError *error) {
+            [self showAlertWithTitle:@"Connection Unavailable" message:@"Please check your internet connection and try again."];
+        }];
+        
     }
     
-    return nil;
+    
     
 }
 
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSDictionary *) configuration {
-    if (self.remote) {
-        return self.remote[@"configuration"];
-    }
-    return nil;
-}
-
-- (NSDictionary *) fields {
-    NSDictionary *conf = [self configuration];
-    if (conf) {
-        return conf[@"fields"];
-    }
-    return nil;
-}
-
-- (NSArray *) orderedKeys {
-    if (self.remote) {
-        return self.remote[@"ordered_keys"];
-    }
-    return nil;
-}
-
-- (NSDictionary *) currentValues {
-    if (self.remote) {
-        return self.remote[@"current_values"];
-    }
-    return nil;
-}
-
-- (NSString *) fieldKeyForIndex:(NSInteger)index {
-    return [self orderedKeys][index];
-}
-
+#pragma mark - UITableViewController DataSource
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 54.0f;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self fields].count;
+    return [self.remote fieldCount];
 }
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *fieldKey = [self.remote keyForFieldWithIndex:indexPath.row];
+    NSDictionary *fieldDict = [self.remote fieldForKey:fieldKey];
+    
+    NSString *cellId = [self cellIdentifierForFieldWithKey:fieldKey];
+    
+    SPRemoteCell *remoteCell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    
+    remoteCell.titleLabel.text = fieldDict[@"title"];
+    remoteCell.descriptionLabel.text = fieldDict[@"description"];
+    
+    [self setValueForRemoteCell:remoteCell fieldDictionary:fieldDict key:fieldKey];
+    
+    return remoteCell;
+}
+
+
+
+#pragma mark - Remote Navigation Utilities
+
+- (NSString *) cellIdentifierForFieldWithKey:(NSString *)key {
+    
+    SPRemoteFieldType type = [self.remote typeOfFieldWithKey:key];
+    
+    switch (type) {
+        case SPRemoteFieldTypeText:
+             return @"SPRemoteTextInputCell";
+            break;
+            
+        case SPRemoteFieldTypeMultiple:
+            return @"SPRemoteLabelCell";
+            break;
+            
+        case SPRemoteFieldTypeNumber:
+             return @"SPRemoteLabelCell";
+            break;
+            
+        case SPRemoteFieldTypeBoolean:
+            return @"SPRemoteSwitchCell";
+            break;
+            
+        case SPRemoteFieldTypeAction:
+            return @"SPRemoteActionCell";
+            break;
+            
+        case SPRemoteFieldTypeUnknown:
+            return nil;
+            break;
+            
+    }
+    
+    return nil;
+    
+}
+
+
 
 @end
