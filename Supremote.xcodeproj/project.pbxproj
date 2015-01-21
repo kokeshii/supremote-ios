@@ -26,7 +26,11 @@
 		8B9E54881A6990B800E0D8A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E54871A6990B800E0D8A3 /* Images.xcassets */; };
 		8B9E548B1A6990B800E0D8A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E54891A6990B800E0D8A3 /* LaunchScreen.xib */; };
 		8B9E54971A6990B900E0D8A3 /* SupremoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E54961A6990B900E0D8A3 /* SupremoteTests.m */; };
-		8BD8E9C11A6DA47300D54940 /* SPRemoteTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9C01A6DA47300D54940 /* SPRemoteTextInputViewController.m */; };
+		8BD8E9C41A6DAF2800D54940 /* SPRemoteTextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9C31A6DAF2800D54940 /* SPRemoteTextInputCell.m */; };
+		8BD8E9C71A6DC30200D54940 /* SPNumberRangeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9C61A6DC30200D54940 /* SPNumberRangeDelegate.m */; };
+		8BD8E9CA1A6DC3F100D54940 /* SPMultipleChoiceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9C91A6DC3F100D54940 /* SPMultipleChoiceDelegate.m */; };
+		8BD8E9CD1A6DCB8F00D54940 /* SPPickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9CC1A6DCB8F00D54940 /* SPPickerDelegate.m */; };
+		8BD8E9D01A6EE3DF00D54940 /* SPRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9CF1A6EE3DF00D54940 /* SPRemote.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +81,16 @@
 		8B9E54901A6990B900E0D8A3 /* SupremoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SupremoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9E54951A6990B900E0D8A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B9E54961A6990B900E0D8A3 /* SupremoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupremoteTests.m; sourceTree = "<group>"; };
-		8BD8E9BF1A6DA47300D54940 /* SPRemoteTextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteTextInputViewController.h; sourceTree = "<group>"; };
-		8BD8E9C01A6DA47300D54940 /* SPRemoteTextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteTextInputViewController.m; sourceTree = "<group>"; };
+		8BD8E9C21A6DAF2800D54940 /* SPRemoteTextInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteTextInputCell.h; sourceTree = "<group>"; };
+		8BD8E9C31A6DAF2800D54940 /* SPRemoteTextInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteTextInputCell.m; sourceTree = "<group>"; };
+		8BD8E9C51A6DC30200D54940 /* SPNumberRangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNumberRangeDelegate.h; sourceTree = "<group>"; };
+		8BD8E9C61A6DC30200D54940 /* SPNumberRangeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNumberRangeDelegate.m; sourceTree = "<group>"; };
+		8BD8E9C81A6DC3F100D54940 /* SPMultipleChoiceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMultipleChoiceDelegate.h; sourceTree = "<group>"; };
+		8BD8E9C91A6DC3F100D54940 /* SPMultipleChoiceDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMultipleChoiceDelegate.m; sourceTree = "<group>"; };
+		8BD8E9CB1A6DCB8F00D54940 /* SPPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPickerDelegate.h; sourceTree = "<group>"; };
+		8BD8E9CC1A6DCB8F00D54940 /* SPPickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPickerDelegate.m; sourceTree = "<group>"; };
+		8BD8E9CE1A6EE3DF00D54940 /* SPRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemote.h; sourceTree = "<group>"; };
+		8BD8E9CF1A6EE3DF00D54940 /* SPRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemote.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +158,6 @@
 				8B2B36C21A6B0AEB00282A79 /* SPRemoteListTableViewController.m */,
 				8B2B36D21A6B2A5900282A79 /* SPRemoteTableViewController.h */,
 				8B2B36D31A6B2A5900282A79 /* SPRemoteTableViewController.m */,
-				8BD8E9BF1A6DA47300D54940 /* SPRemoteTextInputViewController.h */,
-				8BD8E9C01A6DA47300D54940 /* SPRemoteTextInputViewController.m */,
 			);
 			name = Concrete;
 			sourceTree = "<group>";
@@ -171,6 +181,8 @@
 				8B2B36D01A6B278F00282A79 /* SPRemoteSwitchCell.m */,
 				8B2B36D51A6D87C700282A79 /* SPRemoteActionCell.h */,
 				8B2B36D61A6D87C700282A79 /* SPRemoteActionCell.m */,
+				8BD8E9C21A6DAF2800D54940 /* SPRemoteTextInputCell.h */,
+				8BD8E9C31A6DAF2800D54940 /* SPRemoteTextInputCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -204,11 +216,19 @@
 				8B9E547F1A6990B800E0D8A3 /* AppDelegate.m */,
 				8B9E54811A6990B800E0D8A3 /* ViewController.h */,
 				8B9E54821A6990B800E0D8A3 /* ViewController.m */,
+				8BD8E9C81A6DC3F100D54940 /* SPMultipleChoiceDelegate.h */,
+				8BD8E9C91A6DC3F100D54940 /* SPMultipleChoiceDelegate.m */,
+				8BD8E9CB1A6DCB8F00D54940 /* SPPickerDelegate.h */,
+				8BD8E9CC1A6DCB8F00D54940 /* SPPickerDelegate.m */,
+				8BD8E9C51A6DC30200D54940 /* SPNumberRangeDelegate.h */,
+				8BD8E9C61A6DC30200D54940 /* SPNumberRangeDelegate.m */,
 				8B9E54841A6990B800E0D8A3 /* Main.storyboard */,
 				8B9E54871A6990B800E0D8A3 /* Images.xcassets */,
 				8B9E54891A6990B800E0D8A3 /* LaunchScreen.xib */,
 				8B9E547A1A6990B800E0D8A3 /* Supporting Files */,
 				8B2B36BE1A69EE7A00282A79 /* SPHTTPClient.h */,
+				8BD8E9CE1A6EE3DF00D54940 /* SPRemote.h */,
+				8BD8E9CF1A6EE3DF00D54940 /* SPRemote.m */,
 				8B2B36BF1A69EE7A00282A79 /* SPHTTPClient.m */,
 				8B2B36CD1A6B274B00282A79 /* Views */,
 			);
@@ -379,18 +399,22 @@
 			files = (
 				8B2B36CC1A6B26E700282A79 /* SPRemoteCell.m in Sources */,
 				8B2B36D71A6D87C700282A79 /* SPRemoteActionCell.m in Sources */,
+				8BD8E9CD1A6DCB8F00D54940 /* SPPickerDelegate.m in Sources */,
 				8B2B36BB1A69CC4D00282A79 /* SPLoginViewController.m in Sources */,
 				8B9E54831A6990B800E0D8A3 /* ViewController.m in Sources */,
+				8BD8E9C71A6DC30200D54940 /* SPNumberRangeDelegate.m in Sources */,
+				8BD8E9C41A6DAF2800D54940 /* SPRemoteTextInputCell.m in Sources */,
 				8B9E54801A6990B800E0D8A3 /* AppDelegate.m in Sources */,
 				8B9E547D1A6990B800E0D8A3 /* main.m in Sources */,
 				8B2B36C61A6B0B5A00282A79 /* SPTableViewController.m in Sources */,
 				8B2B36D41A6B2A5900282A79 /* SPRemoteTableViewController.m in Sources */,
+				8BD8E9CA1A6DC3F100D54940 /* SPMultipleChoiceDelegate.m in Sources */,
+				8BD8E9D01A6EE3DF00D54940 /* SPRemote.m in Sources */,
 				8B2B36C91A6B269700282A79 /* SPRemoteLabelCell.m in Sources */,
 				8B2B36B61A69CB7B00282A79 /* SPViewController.m in Sources */,
 				8B2B36C31A6B0AEB00282A79 /* SPRemoteListTableViewController.m in Sources */,
 				8B2B36D11A6B278F00282A79 /* SPRemoteSwitchCell.m in Sources */,
 				8B2B36C01A69EE7A00282A79 /* SPHTTPClient.m in Sources */,
-				8BD8E9C11A6DA47300D54940 /* SPRemoteTextInputViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +537,7 @@
 			baseConfigurationReference = 627475BC38EB3B7EB92EA4A5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				INFOPLIST_FILE = Supremote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -524,6 +549,7 @@
 			baseConfigurationReference = 4BF394D18DC76738B65967A2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				INFOPLIST_FILE = Supremote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
