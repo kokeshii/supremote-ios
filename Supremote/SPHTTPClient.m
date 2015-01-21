@@ -80,7 +80,14 @@
 
 - (void) saveRemoteValuesForRemoteWithId:(NSNumber *)remoteId values:(NSDictionary *)values success:(objectBlock)successBlock error:(errorBlock)errorBlock {
     
-    [self POST:@"remotes/save-values/" parameters:values success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+    NSDictionary *params = @{
+                             @"remote_id": remoteId,
+                             @"values": values
+                             };
+    
+    
+    [self POST:@"remotes/save-values/" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         errorBlock(error);
