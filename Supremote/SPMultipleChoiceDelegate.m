@@ -11,7 +11,7 @@
 @implementation SPMultipleChoiceDelegate
 
 
-- (instancetype) delegateWithOptions:(NSArray *)options {
++ (instancetype) delegateWithOptions:(NSArray *)options {
     SPMultipleChoiceDelegate *ret = [[SPMultipleChoiceDelegate alloc] init];
     
     ret.options = options;

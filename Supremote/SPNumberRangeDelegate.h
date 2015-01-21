@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SPPickerDelegate.h" 
 
-@interface SPNumberRangeDelegate : NSObject
+@interface SPNumberRangeDelegate : SPPickerDelegate
 
 @property (nonatomic, assign) NSInteger lowerLimit, upperLimit;
 

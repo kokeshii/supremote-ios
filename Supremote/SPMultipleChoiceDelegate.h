@@ -10,10 +10,10 @@
 #import "SPPickerDelegate.h"
 
 
-@interface SPMultipleChoiceDelegate : NSObject
+@interface SPMultipleChoiceDelegate : SPPickerDelegate
 
 @property (nonatomic, assign) NSArray *options;
 
-- (instancetype) delegateWithOptions:(NSArray *)options;
++ (instancetype) delegateWithOptions:(NSArray *)options;
 
 @end
