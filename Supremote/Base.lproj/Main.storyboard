@@ -208,52 +208,47 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="blX-c6-JIw" id="8ut-JB-lTA">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Al Saud's Server" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="esg-TF-PdY">
-                                                    <rect key="frame" x="142" y="11" width="417" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqL-NA-d1f">
+                                                    <rect key="frame" x="8" y="16" width="102" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="7XO-te-dhA"/>
+                                                        <constraint firstAttribute="height" constant="21" id="Whb-yf-9SA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Al Saud's Server" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="esg-TF-PdY">
+                                                    <rect key="frame" x="115" y="12" width="436" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="4Mt-nY-QCi"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJ7-4J-8rD">
-                                                    <rect key="frame" x="8" y="9" width="129" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="QWg-sK-dlh"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A name for your server." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lt-hc-5NF">
-                                                    <rect key="frame" x="8" y="24" width="129" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="DXz-1R-UpB"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="4Mt-nY-QCi"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="esg-TF-PdY" firstAttribute="leading" secondItem="6lt-hc-5NF" secondAttribute="trailing" constant="5" id="GPR-oj-elc"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="esg-TF-PdY" secondAttribute="bottom" constant="2" id="NxA-9f-9hI"/>
-                                                <constraint firstItem="DJ7-4J-8rD" firstAttribute="top" secondItem="8ut-JB-lTA" secondAttribute="topMargin" constant="1" id="QO5-OA-ol6"/>
-                                                <constraint firstItem="6lt-hc-5NF" firstAttribute="leading" secondItem="8ut-JB-lTA" secondAttribute="leadingMargin" id="QQF-yo-RYL"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="DJ7-4J-8rD" secondAttribute="bottom" constant="15" id="Ti8-Iw-i9W"/>
-                                                <constraint firstItem="DJ7-4J-8rD" firstAttribute="leading" secondItem="8ut-JB-lTA" secondAttribute="leadingMargin" id="WWy-cg-7je"/>
-                                                <constraint firstItem="6lt-hc-5NF" firstAttribute="bottom" secondItem="8ut-JB-lTA" secondAttribute="bottomMargin" id="YhG-SC-bse"/>
-                                                <constraint firstItem="esg-TF-PdY" firstAttribute="leading" secondItem="6lt-hc-5NF" secondAttribute="trailing" constant="5" id="dct-Iz-eDb"/>
-                                                <constraint firstItem="esg-TF-PdY" firstAttribute="top" secondItem="8ut-JB-lTA" secondAttribute="topMargin" constant="3" id="gRR-E7-vbv"/>
-                                                <constraint firstItem="esg-TF-PdY" firstAttribute="leading" secondItem="DJ7-4J-8rD" secondAttribute="trailing" constant="5" id="gRv-0z-YPD"/>
-                                                <constraint firstItem="esg-TF-PdY" firstAttribute="trailing" secondItem="8ut-JB-lTA" secondAttribute="trailingMargin" id="krC-Q3-HgY"/>
-                                                <constraint firstItem="6lt-hc-5NF" firstAttribute="top" secondItem="8ut-JB-lTA" secondAttribute="topMargin" constant="16" id="v2L-k0-gFs"/>
+                                                <constraint firstItem="SqL-NA-d1f" firstAttribute="top" secondItem="8ut-JB-lTA" secondAttribute="topMargin" constant="8" id="1gQ-Wf-4qP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="esg-TF-PdY" secondAttribute="trailing" constant="8" id="3qg-yw-d3x"/>
+                                                <constraint firstItem="esg-TF-PdY" firstAttribute="top" secondItem="8ut-JB-lTA" secondAttribute="topMargin" constant="4" id="CBP-Ft-Us7"/>
+                                                <constraint firstItem="esg-TF-PdY" firstAttribute="leading" secondItem="SqL-NA-d1f" secondAttribute="trailing" constant="5" id="GqO-6O-X9D"/>
+                                                <constraint firstItem="esg-TF-PdY" firstAttribute="leading" secondItem="SqL-NA-d1f" secondAttribute="trailing" constant="329" id="Oha-BZ-qPA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="esg-TF-PdY" secondAttribute="bottom" constant="3" id="PVT-ad-oHJ"/>
+                                                <constraint firstItem="SqL-NA-d1f" firstAttribute="leading" secondItem="8ut-JB-lTA" secondAttribute="leadingMargin" id="XaS-9M-gq1"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="SqL-NA-d1f" secondAttribute="bottom" constant="8" id="qty-Zo-2Uz"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Oha-BZ-qPA"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="6lt-hc-5NF" id="b2d-Lr-d5A"/>
-                                            <outlet property="titleLabel" destination="DJ7-4J-8rD" id="Usi-VG-BG4"/>
                                             <outlet property="valueLabel" destination="esg-TF-PdY" id="YBF-O6-XKX"/>
                                         </connections>
                                     </tableViewCell>
@@ -263,50 +258,41 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Vi-7L-RGx" id="4uq-FL-Tz1">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMw-ZW-iKG">
-                                                    <rect key="frame" x="8" y="9" width="85" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="NCD-uO-4Vg"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A name for your server." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4b-sY-LTl">
-                                                    <rect key="frame" x="8" y="24" width="129" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="NCh-q1-HAM"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Al Saud's Server" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AId-ms-J49">
-                                                    <rect key="frame" x="142" y="12" width="450" height="30"/>
+                                                    <rect key="frame" x="115" y="12" width="477" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Wwo-Yb-S5B"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Wwo-Yb-S5B"/>
+                                                        </mask>
+                                                    </variation>
                                                 </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GT-Cq-Ucx">
+                                                    <rect key="frame" x="8" y="16" width="102" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="MSQ-A6-55q"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="uMw-ZW-iKG" firstAttribute="top" secondItem="4uq-FL-Tz1" secondAttribute="topMargin" constant="1" id="BOQ-kh-X9b"/>
+                                                <constraint firstItem="AId-ms-J49" firstAttribute="leading" secondItem="4GT-Cq-Ucx" secondAttribute="trailing" constant="5" id="8Gc-yk-sbL"/>
                                                 <constraint firstItem="AId-ms-J49" firstAttribute="trailing" secondItem="4uq-FL-Tz1" secondAttribute="trailingMargin" id="FxZ-as-YOA"/>
                                                 <constraint firstItem="AId-ms-J49" firstAttribute="top" secondItem="4uq-FL-Tz1" secondAttribute="topMargin" constant="4" id="MVd-NG-r8c"/>
-                                                <constraint firstItem="AId-ms-J49" firstAttribute="leading" secondItem="G4b-sY-LTl" secondAttribute="trailing" constant="5" id="Pff-bN-41e"/>
-                                                <constraint firstItem="G4b-sY-LTl" firstAttribute="leading" secondItem="4uq-FL-Tz1" secondAttribute="leadingMargin" id="PhW-5N-lSQ"/>
-                                                <constraint firstItem="G4b-sY-LTl" firstAttribute="top" secondItem="4uq-FL-Tz1" secondAttribute="topMargin" constant="16" id="aEA-Oh-nis"/>
-                                                <constraint firstItem="uMw-ZW-iKG" firstAttribute="leading" secondItem="4uq-FL-Tz1" secondAttribute="leadingMargin" id="kua-gx-0F5"/>
-                                                <constraint firstItem="G4b-sY-LTl" firstAttribute="bottom" secondItem="4uq-FL-Tz1" secondAttribute="bottomMargin" id="kvN-cU-2YS"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="uMw-ZW-iKG" secondAttribute="bottom" constant="15" id="l3J-jz-4aW"/>
+                                                <constraint firstItem="4GT-Cq-Ucx" firstAttribute="leading" secondItem="4uq-FL-Tz1" secondAttribute="leadingMargin" id="d9m-AV-lnj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4GT-Cq-Ucx" secondAttribute="bottom" constant="8" id="n7v-Q4-Kjd"/>
+                                                <constraint firstItem="4GT-Cq-Ucx" firstAttribute="top" secondItem="4uq-FL-Tz1" secondAttribute="topMargin" constant="8" id="xt3-aH-chN"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="AId-ms-J49" secondAttribute="bottom" constant="3" id="yRI-4G-5IA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="G4b-sY-LTl" id="RPd-5q-P6N"/>
                                             <outlet property="textField" destination="AId-ms-J49" id="ku3-Lt-ghc"/>
-                                            <outlet property="titleLabel" destination="uMw-ZW-iKG" id="5L8-Sl-0d1"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SPRemoteSwitchCell" rowHeight="54" id="QrV-nF-i4w" customClass="SPRemoteSwitchCell">
@@ -324,37 +310,25 @@
                                                     <color key="onTintColor" red="0.0" green="0.626" blue="0.746" alpha="1" colorSpace="calibratedRGB"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tf6-pr-OIp">
-                                                    <rect key="frame" x="8" y="9" width="150" height="21"/>
+                                                    <rect key="frame" x="8" y="16" width="511" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="TXw-K8-zQA"/>
-                                                        <constraint firstAttribute="width" constant="150" id="Xfk-LP-ah3"/>
+                                                        <constraint firstAttribute="height" constant="21" id="w7G-41-JQZ"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A name for your server." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bn7-vi-wOt">
-                                                    <rect key="frame" x="8" y="24" width="150" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="9cH-0d-mAh"/>
-                                                        <constraint firstAttribute="height" constant="21" id="MfT-h2-jwx"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="IiW-jq-Gaa" secondAttribute="trailing" constant="19" id="2Ct-mo-hu3"/>
-                                                <constraint firstItem="tf6-pr-OIp" firstAttribute="leading" secondItem="bkW-A1-MbQ" secondAttribute="leadingMargin" id="84y-Yt-zNz"/>
-                                                <constraint firstItem="bn7-vi-wOt" firstAttribute="top" secondItem="bkW-A1-MbQ" secondAttribute="topMargin" constant="16" id="EyD-08-sUF"/>
-                                                <constraint firstItem="bn7-vi-wOt" firstAttribute="leading" secondItem="bkW-A1-MbQ" secondAttribute="leadingMargin" id="TcO-Ob-kAw"/>
-                                                <constraint firstItem="tf6-pr-OIp" firstAttribute="top" secondItem="bkW-A1-MbQ" secondAttribute="topMargin" constant="1" id="hqc-GU-FnF"/>
+                                                <constraint firstItem="tf6-pr-OIp" firstAttribute="leading" secondItem="bkW-A1-MbQ" secondAttribute="leadingMargin" id="Jix-qj-q79"/>
                                                 <constraint firstItem="IiW-jq-Gaa" firstAttribute="top" secondItem="bkW-A1-MbQ" secondAttribute="topMargin" constant="3" id="ntU-Vn-Y3H"/>
+                                                <constraint firstItem="IiW-jq-Gaa" firstAttribute="leading" secondItem="tf6-pr-OIp" secondAttribute="trailing" constant="5" id="vpd-wM-TLF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tf6-pr-OIp" secondAttribute="bottom" constant="8" id="xHv-dF-wlZ"/>
+                                                <constraint firstItem="tf6-pr-OIp" firstAttribute="top" secondItem="bkW-A1-MbQ" secondAttribute="topMargin" constant="8" id="z3z-TQ-mps"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="bn7-vi-wOt" id="lkv-IJ-nSd"/>
                                             <outlet property="titleLabel" destination="tf6-pr-OIp" id="jzg-AJ-jLS"/>
                                             <outlet property="valueSwitch" destination="IiW-jq-Gaa" id="Ntd-8A-QsL"/>
                                         </connections>
