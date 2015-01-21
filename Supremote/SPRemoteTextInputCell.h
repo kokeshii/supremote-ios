@@ -11,6 +11,5 @@
 @interface SPRemoteTextInputCell : SPRemoteCell <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *textField;
-@property (nonatomic, assign) NSInteger maxLength;
 
 @end
