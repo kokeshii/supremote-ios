@@ -28,7 +28,7 @@
 
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField {
-    
+   
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField {
@@ -39,6 +39,22 @@
     textField.userInteractionEnabled = NO;
     [self.tableView reloadData];
     [self updateRemoteValues];
+}
+
+
+- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSInteger maxLength = [[self.remote fieldForKey:self.modifyingKey][@"max-length"] integerValue];
+    
+    // Prevent crashing undo bug – see note below.
+    if(range.length + range.location > textField.text.length)
+    {
+        return NO;
+    }
+    
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return (newLength > maxLength) ? NO : YES;
+    
 }
 
 - (void) updateRemoteValues {
@@ -190,70 +206,103 @@
 }
 
 
+#pragma mark - Individual Cell Type select handlers
+
+- (void) didSelectTextInputCell:(SPRemoteTextInputCell *) textInputCell fieldDictionary:(NSDictionary *)fieldDict fieldKey:(NSString *)fieldKey {
+    
+    /*
+        Textfield is deactivated by default. The act of touching the cell is
+     what ends up activating the textfield.
+     
+     */
+    
+    textInputCell.textField.userInteractionEnabled = YES;
+    textInputCell.textField.delegate = self;
+    [textInputCell.textField becomeFirstResponder];
+}
+
+
+- (void) didSelectLabelCell:(SPRemoteLabelCell *) labelCell fieldDictionary:(NSDictionary *)fieldDict fieldKey:(NSString *) fieldKey {
+    
+    RMPickerViewController *pickerVC = [RMPickerViewController pickerController];
+    pickerVC.delegate = self;
+    
+    SPRemoteFieldType fieldType = [self.remote typeOfFieldWithKey:fieldKey];
+    
+    if (fieldType == SPRemoteFieldTypeNumber) {
+        NSArray *numberRange = fieldDict[@"range"];
+        self.pickerDelegate = [SPNumberRangeDelegate delegateWithLowerLimit:[numberRange[0]integerValue] upperLimit:[numberRange[1] integerValue]];
+    } else {
+        NSArray *choices = fieldDict[@"choices"];
+        self.pickerDelegate = [SPMultipleChoiceDelegate delegateWithOptions:choices];
+    }
+    
+    pickerVC.picker.delegate = self.pickerDelegate;
+    pickerVC.picker.dataSource = self.pickerDelegate;
+    [pickerVC show];
+    
+    
+}
+
+
+- (void) didSelectSwitchCell:(SPRemoteSwitchCell *)switchCell fieldDictionary:(NSDictionary *)fieldDict fieldKey:(NSString *)fieldKey {
+    
+    [switchCell.valueSwitch setOn:!switchCell.valueSwitch.on animated:YES];
+    
+    [self.remote setCurrentValue:@(switchCell.valueSwitch.on) forKey:fieldKey];
+    [self updateRemoteValues];
+    
+}
+
+
+- (void) didSelectActionCell:(SPRemoteActionCell *)actionCell fieldDictionary:(NSDictionary *)fieldDict fieldKey:(NSString *)fieldKey {
+    
+    [[self signalForPerformingAction:fieldKey] subscribeNext:^(id x) {
+        
+        if ([x objectForKey:@"error"]) {
+            [self showAlertWithTitle:@"Oops!" message:x[@"error"]];
+            [self loadRemote];
+        }
+        
+    } error:^(NSError *error) {
+        [self showAlertWithTitle:@"Connection Unavailable" message:@"Please check your internet connection and try again."];
+    }];
+    
+    
+}
+
+
+
 #pragma mark - UITableViewController Delegate
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     
     NSString *fieldKey = [self.remote keyForFieldWithIndex:indexPath.row];
     NSDictionary *fieldDict = [self.remote fieldForKey:fieldKey];
-    
-    SPRemoteFieldType fieldType = [self.remote typeOfFieldWithKey:fieldKey];
-    
-    NSLog(@"SETTING MODIFIYNG KEY TO %@", fieldKey);
-    self.modifyingKey = fieldKey;
 
-    if (fieldType == SPRemoteFieldTypeText) {
-        SPRemoteTextInputCell *textInputCell = (SPRemoteTextInputCell *)cell;
-        textInputCell.maxLength = [fieldDict[@"max-length"] integerValue];
+    self.modifyingKey = fieldKey;
+    
+    if ([cell isKindOfClass:[SPRemoteTextInputCell class]]) {
+    
+        [self didSelectTextInputCell:(SPRemoteTextInputCell *)cell fieldDictionary:fieldDict fieldKey:fieldKey];
         
-        textInputCell.textField.userInteractionEnabled = YES;
-        textInputCell.textField.delegate = self;
-        [textInputCell.textField becomeFirstResponder];
+    } else if ([cell isKindOfClass:[SPRemoteLabelCell class]]) {
         
-    } else if (fieldType == SPRemoteFieldTypeMultiple || fieldType == SPRemoteFieldTypeNumber) {
-        RMPickerViewController *pickerVC = [RMPickerViewController pickerController];
-        pickerVC.delegate = self;
+        [self didSelectLabelCell:(SPRemoteLabelCell *)cell fieldDictionary:fieldDict fieldKey:fieldKey];
         
-        if (fieldType == SPRemoteFieldTypeNumber) {
-            NSArray *numberRange = fieldDict[@"range"];
-            self.pickerDelegate = [SPNumberRangeDelegate delegateWithLowerLimit:[numberRange[0]integerValue] upperLimit:[numberRange[1] integerValue]];
-        } else {
-            NSArray *choices = fieldDict[@"choices"];
-            self.pickerDelegate = [SPMultipleChoiceDelegate delegateWithOptions:choices];
-        }
+    } else if ([cell isKindOfClass:[SPRemoteSwitchCell class]]) {
         
-        pickerVC.picker.delegate = self.pickerDelegate;
-        pickerVC.picker.dataSource = self.pickerDelegate;
-        [pickerVC show];
+        [self didSelectSwitchCell:(SPRemoteSwitchCell *)cell fieldDictionary:fieldDict fieldKey:fieldKey];
         
-    } else if (fieldType == SPRemoteFieldTypeBoolean) {
-        SPRemoteSwitchCell *switchCell = (SPRemoteSwitchCell *)cell;
+    } else if ([cell isKindOfClass:[SPRemoteActionCell class]]) {
         
-        [switchCell.valueSwitch setOn:!switchCell.valueSwitch.on animated:YES];
-        
-        [self.remote setCurrentValue:@(switchCell.valueSwitch.on) forKey:fieldKey];
-        [self updateRemoteValues];
-        
-    } else if (fieldType == SPRemoteFieldTypeAction) {
-        
-        [[self signalForPerformingAction:fieldKey] subscribeNext:^(id x) {
-            
-            if ([x objectForKey:@"error"]) {
-                [self showAlertWithTitle:@"Oops!" message:x[@"error"]];
-                [self loadRemote];
-            }
-            
-        } error:^(NSError *error) {
-            [self showAlertWithTitle:@"Connection Unavailable" message:@"Please check your internet connection and try again."];
-        }];
+        [self didSelectActionCell:(SPRemoteActionCell *)cell fieldDictionary:fieldDict fieldKey:fieldKey];
         
     }
-    
-    
     
 }
 
