@@ -249,6 +249,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="titleLabel" destination="SqL-NA-d1f" id="MEt-eO-o09"/>
                                             <outlet property="valueLabel" destination="esg-TF-PdY" id="YBF-O6-XKX"/>
                                         </connections>
                                     </tableViewCell>
@@ -293,6 +294,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="textField" destination="AId-ms-J49" id="ku3-Lt-ghc"/>
+                                            <outlet property="titleLabel" destination="4GT-Cq-Ucx" id="IRE-2t-D3R"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SPRemoteSwitchCell" rowHeight="54" id="QrV-nF-i4w" customClass="SPRemoteSwitchCell">
@@ -339,17 +341,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="biO-En-9Lz" id="wyF-7h-Bdh">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restarts the server" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qj0-1h-b1o">
-                                                    <rect key="frame" x="8" y="24" width="584" height="26"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="26" id="Bcm-P8-9DR"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.96862751250000001" green="0.96862751250000001" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smT-LI-erh">
-                                                    <rect key="frame" x="8" y="8" width="584" height="26"/>
+                                                    <rect key="frame" x="8" y="14" width="584" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="1Ij-ZG-9Mc"/>
                                                     </constraints>
@@ -361,15 +354,11 @@
                                             <color key="backgroundColor" red="0.94117647058823528" green="0.25490196078431371" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="smT-LI-erh" firstAttribute="trailing" secondItem="wyF-7h-Bdh" secondAttribute="trailingMargin" id="NMn-qb-zIV"/>
-                                                <constraint firstItem="smT-LI-erh" firstAttribute="top" secondItem="wyF-7h-Bdh" secondAttribute="topMargin" id="PP5-0U-b98"/>
-                                                <constraint firstItem="qj0-1h-b1o" firstAttribute="top" secondItem="wyF-7h-Bdh" secondAttribute="topMargin" constant="16" id="dso-Ln-21B"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qj0-1h-b1o" secondAttribute="trailing" id="hmq-yZ-FRT"/>
+                                                <constraint firstItem="smT-LI-erh" firstAttribute="top" secondItem="wyF-7h-Bdh" secondAttribute="topMargin" constant="6" id="PP5-0U-b98"/>
                                                 <constraint firstItem="smT-LI-erh" firstAttribute="leading" secondItem="wyF-7h-Bdh" secondAttribute="leadingMargin" id="ple-4R-yLE"/>
-                                                <constraint firstItem="qj0-1h-b1o" firstAttribute="leading" secondItem="wyF-7h-Bdh" secondAttribute="leadingMargin" id="wai-N1-4Nw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="qj0-1h-b1o" id="eCq-Yy-qLD"/>
                                             <outlet property="titleLabel" destination="smT-LI-erh" id="CAH-08-A1g"/>
                                         </connections>
                                     </tableViewCell>
