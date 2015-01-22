@@ -70,7 +70,7 @@
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:@"SPAuthToken"];
-        
+       // NSString *token = nil;
         if (!token) {
             [[SPHTTPClient sharedClient] loginWithUsername:username password:password success:^(id responseArray) {
                 [[NSUserDefaults standardUserDefaults] setObject:responseArray forKey:@"SPAuthToken"];
