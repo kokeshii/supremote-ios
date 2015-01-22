@@ -38,6 +38,9 @@
 		8BD8E9DB1A706A4B00D54940 /* supremote-logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9D81A706A4B00D54940 /* supremote-logo@3x.png */; };
 		8BD8E9E01A70715E00D54940 /* supremote-logo-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9DE1A70715E00D54940 /* supremote-logo-small.png */; };
 		8BD8E9E11A70715E00D54940 /* supremote-logo-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9DF1A70715E00D54940 /* supremote-logo-small@2x.png */; };
+		8BD8E9E41A70899800D54940 /* remote-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9E21A70899800D54940 /* remote-icon.png */; };
+		8BD8E9E51A70899800D54940 /* remote-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9E31A70899800D54940 /* remote-icon@2x.png */; };
+		8BD8E9EA1A708AD600D54940 /* SPRemoteEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9E91A708AD600D54940 /* SPRemoteEntryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,10 @@
 		8BD8E9D81A706A4B00D54940 /* supremote-logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supremote-logo@3x.png"; sourceTree = "<group>"; };
 		8BD8E9DE1A70715E00D54940 /* supremote-logo-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supremote-logo-small.png"; sourceTree = "<group>"; };
 		8BD8E9DF1A70715E00D54940 /* supremote-logo-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supremote-logo-small@2x.png"; sourceTree = "<group>"; };
+		8BD8E9E21A70899800D54940 /* remote-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote-icon.png"; sourceTree = "<group>"; };
+		8BD8E9E31A70899800D54940 /* remote-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote-icon@2x.png"; sourceTree = "<group>"; };
+		8BD8E9E81A708AD600D54940 /* SPRemoteEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteEntryCell.h; sourceTree = "<group>"; };
+		8BD8E9E91A708AD600D54940 /* SPRemoteEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteEntryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,16 +194,8 @@
 		8B2B36CE1A6B275400282A79 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				8B2B36C71A6B269700282A79 /* SPRemoteLabelCell.h */,
-				8B2B36C81A6B269700282A79 /* SPRemoteLabelCell.m */,
-				8B2B36CA1A6B26E700282A79 /* SPRemoteCell.h */,
-				8B2B36CB1A6B26E700282A79 /* SPRemoteCell.m */,
-				8B2B36CF1A6B278F00282A79 /* SPRemoteSwitchCell.h */,
-				8B2B36D01A6B278F00282A79 /* SPRemoteSwitchCell.m */,
-				8B2B36D51A6D87C700282A79 /* SPRemoteActionCell.h */,
-				8B2B36D61A6D87C700282A79 /* SPRemoteActionCell.m */,
-				8BD8E9C21A6DAF2800D54940 /* SPRemoteTextInputCell.h */,
-				8BD8E9C31A6DAF2800D54940 /* SPRemoteTextInputCell.m */,
+				8BD8E9E71A708A8100D54940 /* Other Cells */,
+				8BD8E9E61A708A7400D54940 /* Field Cells */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -281,6 +280,8 @@
 			children = (
 				8BD8E9D61A706A4B00D54940 /* supremote-logo.png */,
 				8BD8E9D71A706A4B00D54940 /* supremote-logo@2x.png */,
+				8BD8E9E21A70899800D54940 /* remote-icon.png */,
+				8BD8E9E31A70899800D54940 /* remote-icon@2x.png */,
 				8BD8E9D81A706A4B00D54940 /* supremote-logo@3x.png */,
 				8BD8E9DE1A70715E00D54940 /* supremote-logo-small.png */,
 				8BD8E9DF1A70715E00D54940 /* supremote-logo-small@2x.png */,
@@ -288,6 +289,32 @@
 				8BD8E9D21A705F8C00D54940 /* OpenSans-Regular.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		8BD8E9E61A708A7400D54940 /* Field Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8B2B36C71A6B269700282A79 /* SPRemoteLabelCell.h */,
+				8B2B36C81A6B269700282A79 /* SPRemoteLabelCell.m */,
+				8B2B36CA1A6B26E700282A79 /* SPRemoteCell.h */,
+				8B2B36CB1A6B26E700282A79 /* SPRemoteCell.m */,
+				8B2B36CF1A6B278F00282A79 /* SPRemoteSwitchCell.h */,
+				8B2B36D01A6B278F00282A79 /* SPRemoteSwitchCell.m */,
+				8B2B36D51A6D87C700282A79 /* SPRemoteActionCell.h */,
+				8B2B36D61A6D87C700282A79 /* SPRemoteActionCell.m */,
+				8BD8E9C21A6DAF2800D54940 /* SPRemoteTextInputCell.h */,
+				8BD8E9C31A6DAF2800D54940 /* SPRemoteTextInputCell.m */,
+			);
+			name = "Field Cells";
+			sourceTree = "<group>";
+		};
+		8BD8E9E71A708A8100D54940 /* Other Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8BD8E9E81A708AD600D54940 /* SPRemoteEntryCell.h */,
+				8BD8E9E91A708AD600D54940 /* SPRemoteEntryCell.m */,
+			);
+			name = "Other Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +403,7 @@
 				8BD8E9D91A706A4B00D54940 /* supremote-logo.png in Resources */,
 				8B2B36B21A69C71C00282A79 /* stylesheet.cas in Resources */,
 				8B9E548B1A6990B800E0D8A3 /* LaunchScreen.xib in Resources */,
+				8BD8E9E41A70899800D54940 /* remote-icon.png in Resources */,
 				8BD8E9E11A70715E00D54940 /* supremote-logo-small@2x.png in Resources */,
 				8BD8E9DA1A706A4B00D54940 /* supremote-logo@2x.png in Resources */,
 				8BD8E9E01A70715E00D54940 /* supremote-logo-small.png in Resources */,
@@ -383,6 +411,7 @@
 				8BD8E9D31A705F8C00D54940 /* OpenSans-Bold.ttf in Resources */,
 				8BD8E9D41A705F8C00D54940 /* OpenSans-Regular.ttf in Resources */,
 				8B9E54881A6990B800E0D8A3 /* Images.xcassets in Resources */,
+				8BD8E9E51A70899800D54940 /* remote-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +466,7 @@
 				8B2B36D71A6D87C700282A79 /* SPRemoteActionCell.m in Sources */,
 				8BD8E9CD1A6DCB8F00D54940 /* SPPickerDelegate.m in Sources */,
 				8B2B36BB1A69CC4D00282A79 /* SPLoginViewController.m in Sources */,
+				8BD8E9EA1A708AD600D54940 /* SPRemoteEntryCell.m in Sources */,
 				8B9E54831A6990B800E0D8A3 /* ViewController.m in Sources */,
 				8BD8E9C71A6DC30200D54940 /* SPNumberRangeDelegate.m in Sources */,
 				8BD8E9C41A6DAF2800D54940 /* SPRemoteTextInputCell.m in Sources */,
