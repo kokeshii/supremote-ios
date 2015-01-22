@@ -75,6 +75,12 @@
     
 }
 
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [self loadRemote];
+    [refreshControl endRefreshing];
+}
+
 #pragma mark - RAC Web service signals
 
 - (RACSignal *) signalForUpdatingRemoteValues {
@@ -209,11 +215,24 @@
     
     SPRemoteFieldType fieldType = [self.remote typeOfFieldWithKey:fieldKey];
     
+    NSInteger selectedValueIndex = -1;
+    id currentValue = [self.remote getCurrentValueForKey:fieldKey];
+    
     if (fieldType == SPRemoteFieldTypeNumber) {
         NSArray *numberRange = fieldDict[@"range"];
+        
+        NSInteger integralValue = [currentValue integerValue];
+        
+        if (integralValue >= [numberRange[0] integerValue] && integralValue <= [numberRange[1] integerValue]) {
+            selectedValueIndex = integralValue - [numberRange[0] integerValue];
+        }
+        
         self.pickerDelegate = [SPNumberRangeDelegate delegateWithLowerLimit:[numberRange[0]integerValue] upperLimit:[numberRange[1] integerValue]];
     } else {
         NSArray *choices = fieldDict[@"choices"];
+
+        selectedValueIndex = [choices indexOfObject:currentValue];
+        
         self.pickerDelegate = [SPMultipleChoiceDelegate delegateWithOptions:choices];
     }
     
@@ -221,6 +240,12 @@
     pickerVC.picker.dataSource = self.pickerDelegate;
     [pickerVC show];
     
+    
+    if (selectedValueIndex == NSNotFound) {
+        selectedValueIndex = 0;
+    }
+    
+    [pickerVC.picker selectRow:selectedValueIndex inComponent:0 animated:YES];
     
 }
 
