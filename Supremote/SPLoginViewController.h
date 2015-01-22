@@ -14,4 +14,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *loginButton, *signupButton;
 @property (nonatomic, weak) IBOutlet UITextField *usernameField, *passwordField;
 
+- (IBAction)unwindToLogin:(UIStoryboardSegue *)unwindSegue;
+
 @end
