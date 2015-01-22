@@ -16,6 +16,14 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+    
+}
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    
 }
 
 
