@@ -43,9 +43,11 @@
         }
         
     } error:^(NSError *error) {
-        [self showConnectionUnavailableAlert];
-        [self.remote rollback];
-        [self.tableView reloadData];
+        if (error) {
+            [self showConnectionUnavailableAlert];
+            [self.remote rollback];
+            [self.tableView reloadData];
+        }
     }];
     
 }
@@ -61,7 +63,9 @@
         self.title = [self.remote name];
         [self.tableView reloadData];
     } error:^(NSError *error) {
-        [self showConnectionUnavailableAlert];
+        if (error) {
+            [self showConnectionUnavailableAlert];
+        }
     }];
 }
 
@@ -70,6 +74,11 @@
     
     // Get Remote
     [self loadRemote];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SPHTTPClientLoggedOutNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"NOTIFICATION RECEIVED");
+        [self performSegueWithIdentifier:@"SPUnwindToLoginSegue" sender:nil];
+    }];
     
     
 }
@@ -269,7 +278,9 @@
         }
         
     } error:^(NSError *error) {
-        [self showConnectionUnavailableAlert];
+        if (error) {
+            [self showConnectionUnavailableAlert];
+        }
     }];
     
     
