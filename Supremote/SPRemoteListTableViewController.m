@@ -8,6 +8,7 @@
 
 #import "SPRemoteListTableViewController.h"
 #import "SPRemoteTableViewController.h"
+#import "SPRemoteEntryCell.h"
 
 @interface SPRemoteListTableViewController ()
 
@@ -63,14 +64,14 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SPRemoteCell"];
+    SPRemoteEntryCell *cell = (SPRemoteEntryCell *)[tableView dequeueReusableCellWithIdentifier:@"SPRemoteEntryCell"];
     
     NSDictionary *remote = self.remoteList[indexPath.row];
     NSDictionary *developer = remote[@"developer"];
     NSDictionary *authUser = developer[@"auth_user"];
     
-    cell.textLabel.text = remote[@"name"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", authUser[@"first_name"], authUser[@"last_name"]];
+    cell.remoteNameLabel.text = remote[@"name"];
+    cell.developerNameLabel.text = [NSString stringWithFormat:@"@%@", authUser[@"username"]];
     
     return cell;
     
