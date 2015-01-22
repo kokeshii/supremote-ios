@@ -7,7 +7,14 @@
 //
 
 #import "SPRemoteCell.h"
+#import <Classy.h>
 
 @implementation SPRemoteCell
+
+- (void) awakeFromNib {
+    [super awakeFromNib];
+    self.titleLabel.cas_styleClass = @"remoteFieldName";
+}
+
 
 @end
