@@ -37,9 +37,14 @@ typedef NS_ENUM(NSInteger, SPRemoteListSection) {
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"supremote-logo-small.png"]];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:SPHTTPClientLoggedOutNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"NOTIFICATION RECEIVED");
+        [self performSegueWithIdentifier:@"SPUnwindToLoginSegue" sender:nil];
+    }];
+    
 }
 
--(void) refresh:(UIRefreshControl *)refreshControl {
+- (void) refresh:(UIRefreshControl *)refreshControl {
     [refreshControl endRefreshing];
     [self loadRemoteList];
 }
@@ -53,10 +58,16 @@ typedef NS_ENUM(NSInteger, SPRemoteListSection) {
         self.remoteList = x;
         [self.tableView reloadData];
     } error:^(NSError *error) {
-        [self showConnectionUnavailableAlert];
+        if (error) {
+            NSLog(@"ERROR!!!!");
+            [self showConnectionUnavailableAlert];
+        }
     }];
     
 }
+
+
+
 
 #pragma mark - Web Service Signals
 
@@ -70,7 +81,7 @@ typedef NS_ENUM(NSInteger, SPRemoteListSection) {
             [subscriber sendNext:responseArray];
             [subscriber sendCompleted];
         } error:^(NSError *errorInfo) {
-            [subscriber sendError:unauthorizedError];
+            [subscriber sendError:errorInfo];
         }];
         
         return nil;
@@ -105,7 +116,7 @@ typedef NS_ENUM(NSInteger, SPRemoteListSection) {
         [self performSegueWithIdentifier:@"SPRemoteSegue" sender:nil];
     } else {
         // Logout button pressed
-        NSLog(@"LOGOUT PRESSED");
+        [self performSegueWithIdentifier:@"SPUnwindToLoginSegue" sender:nil];
     }
 }
 
