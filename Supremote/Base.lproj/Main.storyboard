@@ -43,20 +43,22 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QdT-SJ-016">
                                         <rect key="frame" x="-18" y="4" width="604" height="43"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="GXI-LI-8SB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.96862751250000001" green="0.96862751250000001" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="23"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fWv-BE-Ufi">
                                         <rect key="frame" x="-18" y="55" width="604" height="43"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="8Zl-d4-Inf"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.96862751250000001" green="0.96862751250000001" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="23"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
@@ -215,11 +217,13 @@
                     <connections>
                         <outlet property="tableView" destination="4wA-JM-aoQ" id="Yqg-jv-0uc"/>
                         <segue destination="9db-Ww-jVg" kind="show" identifier="SPRemoteSegue" id="f7N-pr-HKe"/>
+                        <segue destination="zQ9-97-7H3" kind="unwind" identifier="SPUnwindToLoginSegue" unwindAction="unwindToLogin:" id="RvI-Jc-5c9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bqp-XW-qu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zQ9-97-7H3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1554" y="158"/>
+            <point key="canvasLocation" x="1667" y="177"/>
         </scene>
         <!--Remote Table View Controller-->
         <scene sceneID="kf7-SH-Cqt">
@@ -425,9 +429,11 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Oz2-fd-JPf" id="66k-uf-SLL"/>
+                        <segue destination="LQh-Yj-kee" kind="unwind" identifier="SPUnwindToLoginSegue" unwindAction="unwindToLogin:" id="gyf-bN-JiD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fcx-YC-S63" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LQh-Yj-kee" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1649" y="-658"/>
         </scene>
