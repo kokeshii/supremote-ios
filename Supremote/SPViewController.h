@@ -23,4 +23,6 @@ static NSString * const SPSupremoteDomain = @"Supremote";
 
 - (void) showAlertWithTitle:(NSString *)title message:(NSString *)message;
 
+- (void) showConnectionUnavailableAlert;
+
 @end

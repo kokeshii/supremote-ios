@@ -38,6 +38,10 @@
     
 }
 
+- (void) showConnectionUnavailableAlert {
+    [self showAlertWithTitle:@"Connection Unavailable" message:@"Please check your internet connection and try again."];
+}
+
 
 /*
 #pragma mark - Navigation
