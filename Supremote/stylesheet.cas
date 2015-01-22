@@ -1,6 +1,41 @@
+
+$danger-color = #F04124;
+$success-color = #43AC6A;
+$primary-color = #008CBA;
+$warning-color = #E99002;
+$default-color = #E7E7E7;
+$info-color = #5BC0DE;
+
 UINavigationBar {
     bar-tint-color #333333
     title-text-attributes: @{
         foreground-color: white
+    }
+}
+
+^UIView.danger {
+    background-color $danger-color
+}
+
+^UIView.warning {
+    background-color $warning-color
+}
+
+^UIView.success {
+    background-color $success-color
+}
+
+^UIView.primary {
+    background-color $primary-color
+}
+
+^UIView.info {
+    background-color $info-color
+}
+
+^UIView.default {
+    background-color $default-color
+    > UILabel {
+        text-color black
     }
 }
