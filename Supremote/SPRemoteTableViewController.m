@@ -43,8 +43,7 @@
         }
         
     } error:^(NSError *error) {
-        [self showAlertWithTitle:@"Connection Unavailable" message:@"Please check your internet connection and try again."];
-
+        [self showConnectionUnavailableAlert];
         [self.remote rollback];
         [self.tableView reloadData];
     }];
@@ -62,7 +61,7 @@
         self.title = [self.remote name];
         [self.tableView reloadData];
     } error:^(NSError *error) {
-        [self showAlertWithTitle:@"Connection Unavailable" message:@"Please check your internet connection and try again."];
+        [self showConnectionUnavailableAlert];
     }];
 }
 
@@ -270,7 +269,7 @@
         }
         
     } error:^(NSError *error) {
-        [self showAlertWithTitle:@"Connection Unavailable" message:@"Please check your internet connection and try again."];
+        [self showConnectionUnavailableAlert];
     }];
     
     
