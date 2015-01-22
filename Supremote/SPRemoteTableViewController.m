@@ -12,6 +12,7 @@
 #import "SPRemoteSwitchCell.h"
 #import "SPRemoteActionCell.h"
 #import "SPRemoteTextInputCell.h"
+#import <Classy/Classy.h>
 
 #import "SPMultipleChoiceDelegate.h"
 #import "SPNumberRangeDelegate.h"
@@ -26,36 +27,7 @@
 
 @implementation SPRemoteTableViewController
 
-
-- (void) textFieldDidBeginEditing:(UITextField *)textField {
-   
-}
-
-- (void) textFieldDidEndEditing:(UITextField *)textField {
-    
-    [self.remote setCurrentValue:textField.text forKey:self.modifyingKey];
-    self.modifyingKey = nil;
-    textField.delegate = nil;
-    textField.userInteractionEnabled = NO;
-    [self.tableView reloadData];
-    [self updateRemoteValues];
-}
-
-
-- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
-    NSInteger maxLength = [[self.remote fieldForKey:self.modifyingKey][@"max-length"] integerValue];
-    
-    // Prevent crashing undo bug – see note below.
-    if(range.length + range.location > textField.text.length)
-    {
-        return NO;
-    }
-    
-    NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    return (newLength > maxLength) ? NO : YES;
-    
-}
+#pragma mark - Loading Procedures
 
 - (void) updateRemoteValues {
     
@@ -102,6 +74,8 @@
     
     
 }
+
+#pragma mark - RAC Web service signals
 
 - (RACSignal *) signalForUpdatingRemoteValues {
     
@@ -201,6 +175,12 @@
         
         BOOL fieldValue = [[self.remote getCurrentValueForKey:key] boolValue];
         [switchCell.valueSwitch setOn:fieldValue animated:YES];
+    } else if ([fieldType isEqualToString:@"action"]) {
+        
+        SPRemoteActionCell *actionCell = (SPRemoteActionCell *)cell;
+        
+        actionCell.contentView.cas_styleClass = fieldDictionary[@"class"];
+        
     }
     
 }
@@ -376,6 +356,37 @@
     
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (void) textFieldDidBeginEditing:(UITextField *)textField {
+    
+}
+
+- (void) textFieldDidEndEditing:(UITextField *)textField {
+    
+    [self.remote setCurrentValue:textField.text forKey:self.modifyingKey];
+    self.modifyingKey = nil;
+    textField.delegate = nil;
+    textField.userInteractionEnabled = NO;
+    [self.tableView reloadData];
+    [self updateRemoteValues];
+}
+
+
+- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSInteger maxLength = [[self.remote fieldForKey:self.modifyingKey][@"max-length"] integerValue];
+    
+    // Prevent crashing undo bug – see note below.
+    if(range.length + range.location > textField.text.length)
+    {
+        return NO;
+    }
+    
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return (newLength > maxLength) ? NO : YES;
+    
+}
 
 
 @end
