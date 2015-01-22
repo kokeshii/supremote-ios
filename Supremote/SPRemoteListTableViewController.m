@@ -29,6 +29,9 @@
        [self showAlertWithTitle:@"ERROR" message:@"ERROR"];
    }];
     
+    
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"supremote-logo-small.png"]];
+    
 }
 
 - (RACSignal *) signalForRemoteList {
