@@ -21,7 +21,6 @@
 		8B2B36D71A6D87C700282A79 /* SPRemoteActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36D61A6D87C700282A79 /* SPRemoteActionCell.m */; };
 		8B9E547D1A6990B800E0D8A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E547C1A6990B800E0D8A3 /* main.m */; };
 		8B9E54801A6990B800E0D8A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E547F1A6990B800E0D8A3 /* AppDelegate.m */; };
-		8B9E54831A6990B800E0D8A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E54821A6990B800E0D8A3 /* ViewController.m */; };
 		8B9E54861A6990B800E0D8A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E54841A6990B800E0D8A3 /* Main.storyboard */; };
 		8B9E54881A6990B800E0D8A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E54871A6990B800E0D8A3 /* Images.xcassets */; };
 		8B9E548B1A6990B800E0D8A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E54891A6990B800E0D8A3 /* LaunchScreen.xib */; };
@@ -83,8 +82,6 @@
 		8B9E547C1A6990B800E0D8A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B9E547E1A6990B800E0D8A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8B9E547F1A6990B800E0D8A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8B9E54811A6990B800E0D8A3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8B9E54821A6990B800E0D8A3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8B9E54851A6990B800E0D8A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B9E54871A6990B800E0D8A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8B9E548A1A6990B800E0D8A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -227,23 +224,14 @@
 				8B9E547E1A6990B800E0D8A3 /* AppDelegate.h */,
 				8B2B36B11A69C71C00282A79 /* stylesheet.cas */,
 				8B9E547F1A6990B800E0D8A3 /* AppDelegate.m */,
-				8B9E54811A6990B800E0D8A3 /* ViewController.h */,
-				8B9E54821A6990B800E0D8A3 /* ViewController.m */,
-				8BD8E9C81A6DC3F100D54940 /* SPMultipleChoiceDelegate.h */,
-				8BD8E9C91A6DC3F100D54940 /* SPMultipleChoiceDelegate.m */,
-				8BD8E9CB1A6DCB8F00D54940 /* SPPickerDelegate.h */,
-				8BD8E9CC1A6DCB8F00D54940 /* SPPickerDelegate.m */,
+				8BCEC7C81A719DCA0076A243 /* Models */,
+				8BCEC7C91A719DD80076A243 /* Web Services */,
+				8BCEC7CA1A719DF10076A243 /* Delegates */,
 				8BD8E9D51A706A3800D54940 /* Resources */,
-				8BD8E9C51A6DC30200D54940 /* SPNumberRangeDelegate.h */,
-				8BD8E9C61A6DC30200D54940 /* SPNumberRangeDelegate.m */,
 				8B9E54841A6990B800E0D8A3 /* Main.storyboard */,
 				8B9E54871A6990B800E0D8A3 /* Images.xcassets */,
 				8B9E54891A6990B800E0D8A3 /* LaunchScreen.xib */,
 				8B9E547A1A6990B800E0D8A3 /* Supporting Files */,
-				8B2B36BE1A69EE7A00282A79 /* SPHTTPClient.h */,
-				8BD8E9CE1A6EE3DF00D54940 /* SPRemote.h */,
-				8BD8E9CF1A6EE3DF00D54940 /* SPRemote.m */,
-				8B2B36BF1A69EE7A00282A79 /* SPHTTPClient.m */,
 				8B2B36CD1A6B274B00282A79 /* Views */,
 			);
 			path = Supremote;
@@ -273,6 +261,37 @@
 				8B9E54951A6990B900E0D8A3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8BCEC7C81A719DCA0076A243 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8BD8E9CE1A6EE3DF00D54940 /* SPRemote.h */,
+				8BD8E9CF1A6EE3DF00D54940 /* SPRemote.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		8BCEC7C91A719DD80076A243 /* Web Services */ = {
+			isa = PBXGroup;
+			children = (
+				8B2B36BE1A69EE7A00282A79 /* SPHTTPClient.h */,
+				8B2B36BF1A69EE7A00282A79 /* SPHTTPClient.m */,
+			);
+			name = "Web Services";
+			sourceTree = "<group>";
+		};
+		8BCEC7CA1A719DF10076A243 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				8BD8E9C51A6DC30200D54940 /* SPNumberRangeDelegate.h */,
+				8BD8E9C61A6DC30200D54940 /* SPNumberRangeDelegate.m */,
+				8BD8E9C81A6DC3F100D54940 /* SPMultipleChoiceDelegate.h */,
+				8BD8E9C91A6DC3F100D54940 /* SPMultipleChoiceDelegate.m */,
+				8BD8E9CB1A6DCB8F00D54940 /* SPPickerDelegate.h */,
+				8BD8E9CC1A6DCB8F00D54940 /* SPPickerDelegate.m */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 		8BD8E9D51A706A3800D54940 /* Resources */ = {
@@ -467,7 +486,6 @@
 				8BD8E9CD1A6DCB8F00D54940 /* SPPickerDelegate.m in Sources */,
 				8B2B36BB1A69CC4D00282A79 /* SPLoginViewController.m in Sources */,
 				8BD8E9EA1A708AD600D54940 /* SPRemoteEntryCell.m in Sources */,
-				8B9E54831A6990B800E0D8A3 /* ViewController.m in Sources */,
 				8BD8E9C71A6DC30200D54940 /* SPNumberRangeDelegate.m in Sources */,
 				8BD8E9C41A6DAF2800D54940 /* SPRemoteTextInputCell.m in Sources */,
 				8B9E54801A6990B800E0D8A3 /* AppDelegate.m in Sources */,
