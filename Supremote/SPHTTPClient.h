@@ -8,6 +8,8 @@
 
 #import <AFNetworking/AFNetworking.h>
 
+extern NSString * const SPHTTPClientLoggedOutNotification;
+
 typedef void(^errorBlock)(NSError *errorInfo);
 typedef void(^objectBlock)(id responseArray);
 
@@ -28,5 +30,9 @@ typedef void(^objectBlock)(id responseArray);
 - (void) getRemoteWithId:(NSNumber *)remoteId success:(objectBlock)successBlock error:(errorBlock)errorBlock;
 
 - (void) triggerAction:(NSString *)actionName forRemoteWithId:(NSNumber *)remoteId success:(objectBlock)successBlock error:(errorBlock)errorBlock;
+
+- (void) logout;
+
+- (void) checkForUnauthorizedResponse:(errorBlock)errorBlock error:(NSError *)error;
 
 @end

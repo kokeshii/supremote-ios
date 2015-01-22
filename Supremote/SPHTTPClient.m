@@ -13,6 +13,8 @@
 
 #define ROOT_URL DEV_OFFLINE_URL
 
+NSString * const SPHTTPClientLoggedOutNotification = @"SPHTTPClientLoggedOutNotification";
+
 @implementation SPHTTPClient
 
 + (instancetype)sharedClient {
@@ -25,6 +27,8 @@
     
     return _sharedClient;
 }
+
+
 
 - (void) loginWithUsername:(NSString *)username password:(NSString *)password success:(objectBlock)successBlock error:(errorBlock)errorBlock {
     
@@ -43,7 +47,7 @@
         successBlock(token);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        errorBlock(error);
+        [self checkForUnauthorizedResponse:errorBlock error:error];
     }];
     
 }
@@ -65,7 +69,7 @@
     [self GET:@"me/" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        errorBlock(error);
+        [self checkForUnauthorizedResponse:errorBlock error:error];
     }];
     
 }
@@ -74,7 +78,7 @@
     [self GET:@"remotes/" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        errorBlock(error);
+        [self checkForUnauthorizedResponse:errorBlock error:error];
     }];
 }
 
@@ -90,7 +94,7 @@
     [self POST:@"remotes/save-values/" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        errorBlock(error);
+        [self checkForUnauthorizedResponse:errorBlock error:error];
     }];
     
 }
@@ -102,7 +106,7 @@
     [self GET:path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        errorBlock(error);
+        [self checkForUnauthorizedResponse:errorBlock error:error];
     }];
     
 }
@@ -114,9 +118,38 @@
     [self POST:@"remotes/trigger-action/" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        errorBlock(error);
+        [self checkForUnauthorizedResponse:errorBlock error:error];
     }];
     
+}
+
+
+- (void) postLoggedOutNotification {
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:SPHTTPClientLoggedOutNotification object:nil];
+}
+
+- (void) checkForUnauthorizedResponse:(errorBlock)errorBlock error:(NSError *)error {
+    
+    NSHTTPURLResponse *response = (NSHTTPURLResponse *)error.userInfo[@"com.alamofire.serialization.response.error.response"];
+    
+    
+    
+    // If response is unauthorized, post the notification
+    if (response.statusCode == 401) {
+        NSLog(@"POST NOTIFICATION!!! LOGGED OUT!!");
+        errorBlock(nil);
+        [self postLoggedOutNotification];
+    } else {
+        errorBlock(error);
+    }
+    
+    
+    
+}
+
+- (void) logout {
+    self.accessToken = nil;
 }
 
 @end
