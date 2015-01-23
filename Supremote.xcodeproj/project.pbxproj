@@ -25,6 +25,11 @@
 		8B9E54881A6990B800E0D8A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E54871A6990B800E0D8A3 /* Images.xcassets */; };
 		8B9E548B1A6990B800E0D8A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E54891A6990B800E0D8A3 /* LaunchScreen.xib */; };
 		8B9E54971A6990B900E0D8A3 /* SupremoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E54961A6990B900E0D8A3 /* SupremoteTests.m */; };
+		8BCEC7CD1A71C8050076A243 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BCEC7CB1A71C8050076A243 /* icon@2x.png */; };
+		8BCEC7CE1A71C8050076A243 /* icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BCEC7CC1A71C8050076A243 /* icon@3x.png */; };
+		8BCEC7D21A71CF9B0076A243 /* remote-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BCEC7CF1A71CF9B0076A243 /* remote-icon@3x.png */; };
+		8BCEC7D31A71CF9B0076A243 /* remote-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BCEC7D01A71CF9B0076A243 /* remote-icon.png */; };
+		8BCEC7D41A71CF9B0076A243 /* remote-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BCEC7D11A71CF9B0076A243 /* remote-icon@2x.png */; };
 		8BD8E9C41A6DAF2800D54940 /* SPRemoteTextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9C31A6DAF2800D54940 /* SPRemoteTextInputCell.m */; };
 		8BD8E9C71A6DC30200D54940 /* SPNumberRangeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9C61A6DC30200D54940 /* SPNumberRangeDelegate.m */; };
 		8BD8E9CA1A6DC3F100D54940 /* SPMultipleChoiceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9C91A6DC3F100D54940 /* SPMultipleChoiceDelegate.m */; };
@@ -37,8 +42,6 @@
 		8BD8E9DB1A706A4B00D54940 /* supremote-logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9D81A706A4B00D54940 /* supremote-logo@3x.png */; };
 		8BD8E9E01A70715E00D54940 /* supremote-logo-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9DE1A70715E00D54940 /* supremote-logo-small.png */; };
 		8BD8E9E11A70715E00D54940 /* supremote-logo-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9DF1A70715E00D54940 /* supremote-logo-small@2x.png */; };
-		8BD8E9E41A70899800D54940 /* remote-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9E21A70899800D54940 /* remote-icon.png */; };
-		8BD8E9E51A70899800D54940 /* remote-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9E31A70899800D54940 /* remote-icon@2x.png */; };
 		8BD8E9EA1A708AD600D54940 /* SPRemoteEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9E91A708AD600D54940 /* SPRemoteEntryCell.m */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +91,11 @@
 		8B9E54901A6990B900E0D8A3 /* SupremoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SupremoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9E54951A6990B900E0D8A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B9E54961A6990B900E0D8A3 /* SupremoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupremoteTests.m; sourceTree = "<group>"; };
+		8BCEC7CB1A71C8050076A243 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		8BCEC7CC1A71C8050076A243 /* icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@3x.png"; sourceTree = "<group>"; };
+		8BCEC7CF1A71CF9B0076A243 /* remote-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote-icon@3x.png"; sourceTree = "<group>"; };
+		8BCEC7D01A71CF9B0076A243 /* remote-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote-icon.png"; sourceTree = "<group>"; };
+		8BCEC7D11A71CF9B0076A243 /* remote-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote-icon@2x.png"; sourceTree = "<group>"; };
 		8BD8E9C21A6DAF2800D54940 /* SPRemoteTextInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteTextInputCell.h; sourceTree = "<group>"; };
 		8BD8E9C31A6DAF2800D54940 /* SPRemoteTextInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteTextInputCell.m; sourceTree = "<group>"; };
 		8BD8E9C51A6DC30200D54940 /* SPNumberRangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNumberRangeDelegate.h; sourceTree = "<group>"; };
@@ -105,8 +113,6 @@
 		8BD8E9D81A706A4B00D54940 /* supremote-logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supremote-logo@3x.png"; sourceTree = "<group>"; };
 		8BD8E9DE1A70715E00D54940 /* supremote-logo-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supremote-logo-small.png"; sourceTree = "<group>"; };
 		8BD8E9DF1A70715E00D54940 /* supremote-logo-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supremote-logo-small@2x.png"; sourceTree = "<group>"; };
-		8BD8E9E21A70899800D54940 /* remote-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote-icon.png"; sourceTree = "<group>"; };
-		8BD8E9E31A70899800D54940 /* remote-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remote-icon@2x.png"; sourceTree = "<group>"; };
 		8BD8E9E81A708AD600D54940 /* SPRemoteEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteEntryCell.h; sourceTree = "<group>"; };
 		8BD8E9E91A708AD600D54940 /* SPRemoteEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteEntryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -299,10 +305,13 @@
 			children = (
 				8BD8E9D61A706A4B00D54940 /* supremote-logo.png */,
 				8BD8E9D71A706A4B00D54940 /* supremote-logo@2x.png */,
-				8BD8E9E21A70899800D54940 /* remote-icon.png */,
-				8BD8E9E31A70899800D54940 /* remote-icon@2x.png */,
+				8BCEC7CB1A71C8050076A243 /* icon@2x.png */,
+				8BCEC7CC1A71C8050076A243 /* icon@3x.png */,
 				8BD8E9D81A706A4B00D54940 /* supremote-logo@3x.png */,
 				8BD8E9DE1A70715E00D54940 /* supremote-logo-small.png */,
+				8BCEC7CF1A71CF9B0076A243 /* remote-icon@3x.png */,
+				8BCEC7D01A71CF9B0076A243 /* remote-icon.png */,
+				8BCEC7D11A71CF9B0076A243 /* remote-icon@2x.png */,
 				8BD8E9DF1A70715E00D54940 /* supremote-logo-small@2x.png */,
 				8BD8E9D11A705F8C00D54940 /* OpenSans-Bold.ttf */,
 				8BD8E9D21A705F8C00D54940 /* OpenSans-Regular.ttf */,
@@ -419,18 +428,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B9E54861A6990B800E0D8A3 /* Main.storyboard in Resources */,
+				8BCEC7D41A71CF9B0076A243 /* remote-icon@2x.png in Resources */,
 				8BD8E9D91A706A4B00D54940 /* supremote-logo.png in Resources */,
+				8BCEC7CE1A71C8050076A243 /* icon@3x.png in Resources */,
 				8B2B36B21A69C71C00282A79 /* stylesheet.cas in Resources */,
+				8BCEC7D31A71CF9B0076A243 /* remote-icon.png in Resources */,
 				8B9E548B1A6990B800E0D8A3 /* LaunchScreen.xib in Resources */,
-				8BD8E9E41A70899800D54940 /* remote-icon.png in Resources */,
 				8BD8E9E11A70715E00D54940 /* supremote-logo-small@2x.png in Resources */,
 				8BD8E9DA1A706A4B00D54940 /* supremote-logo@2x.png in Resources */,
+				8BCEC7CD1A71C8050076A243 /* icon@2x.png in Resources */,
 				8BD8E9E01A70715E00D54940 /* supremote-logo-small.png in Resources */,
 				8BD8E9DB1A706A4B00D54940 /* supremote-logo@3x.png in Resources */,
 				8BD8E9D31A705F8C00D54940 /* OpenSans-Bold.ttf in Resources */,
 				8BD8E9D41A705F8C00D54940 /* OpenSans-Regular.ttf in Resources */,
+				8BCEC7D21A71CF9B0076A243 /* remote-icon@3x.png in Resources */,
 				8B9E54881A6990B800E0D8A3 /* Images.xcassets in Resources */,
-				8BD8E9E51A70899800D54940 /* remote-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
