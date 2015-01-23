@@ -13,9 +13,6 @@
 - (void) awakeFromNib {
     [super awakeFromNib];
     
-    self.remoteImageView.layer.cornerRadius = 20.9f;
-    self.remoteImageView.clipsToBounds = YES;
-    
 }
 
 @end
