@@ -410,7 +410,7 @@
 
 - (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
-    NSInteger maxLength = [[self.remote fieldForKey:self.modifyingKey][@"max-length"] integerValue];
+    NSInteger maxLength = [[self.remote fieldForKey:self.modifyingKey][@"maxLength"] integerValue];
     
     // Prevent crashing undo bug – see note below.
     if(range.length + range.location > textField.text.length)
