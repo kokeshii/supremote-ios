@@ -15,22 +15,37 @@ UINavigationBar {
 
 ^UIView.danger {
     background-color $danger-color
+    > UILabel {
+        text-color white
+    }
 }
 
 ^UIView.warning {
     background-color $warning-color
+    > UILabel {
+        text-color white
+    }
 }
 
 ^UIView.success {
     background-color $success-color
+    > UILabel {
+        text-color white
+    }
 }
 
 ^UIView.primary {
     background-color $primary-color
+    > UILabel {
+        text-color white
+    }
 }
 
 ^UIView.info {
     background-color $info-color
+    > UILabel {
+        text-color white
+    }
 }
 
 ^UIView.default {
