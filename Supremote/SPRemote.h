@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, SPRemoteFieldType) {
 - (NSNumber *) remoteId;
 - (NSInteger) fieldCount;
 - (NSArray *) orderedKeys;
+- (NSArray *) fieldsets;
 - (NSDictionary *) fieldForKey:(NSString *)key;
 - (NSString *) keyForFieldWithIndex:(NSInteger) index;
 - (BOOL) fieldWithKey:(NSString *)key isOfType:(SPRemoteFieldType)type;

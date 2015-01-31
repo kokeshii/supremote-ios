@@ -76,7 +76,6 @@
     [self loadRemote];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:SPHTTPClientLoggedOutNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"NOTIFICATION RECEIVED");
         [self performSegueWithIdentifier:@"SPUnwindToLoginSegue" sender:nil];
     }];
     
@@ -295,8 +294,9 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
+    NSDictionary *sectionFieldset = (NSDictionary *)([self.remote fieldsets][indexPath.section]);
     
-    NSString *fieldKey = [self.remote keyForFieldWithIndex:indexPath.row];
+    NSString *fieldKey = sectionFieldset[@"fields"][indexPath.row];
     NSDictionary *fieldDict = [self.remote fieldForKey:fieldKey];
 
     self.modifyingKey = fieldKey;
@@ -328,16 +328,33 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.remote fieldCount];
+    
+    NSArray *fieldsForSection = (NSArray *)([self.remote fieldsets][section][@"fields"]);
+    
+    return [fieldsForSection count];
+    
+    
+}
+
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSDictionary *sectionFieldset = (NSDictionary *)([self.remote fieldsets][section]);
+    return sectionFieldset[@"title"];
+}
+
+- (NSString *) tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    NSDictionary *sectionFieldset = (NSDictionary *)([self.remote fieldsets][section]);
+    return sectionFieldset[@"helpText"];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [self.remote fieldsets].count;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *fieldKey = [self.remote keyForFieldWithIndex:indexPath.row];
+    NSDictionary *sectionFieldset = (NSDictionary *)([self.remote fieldsets][indexPath.section]);
+    
+    NSString *fieldKey = sectionFieldset[@"fields"][indexPath.row];
     NSDictionary *fieldDict = [self.remote fieldForKey:fieldKey];
     
     NSString *cellId = [self cellIdentifierForFieldWithKey:fieldKey];

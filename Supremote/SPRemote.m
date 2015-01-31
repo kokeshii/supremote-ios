@@ -57,6 +57,9 @@
     return self.remote[@"id"];
 }
 
+- (NSArray *) fieldsets {
+    return self.remote[@"configuration"][@"fieldsets"];
+}
 
 - (NSInteger) fieldCount {
     return [self.remote[@"configuration"][@"fields"] count];
