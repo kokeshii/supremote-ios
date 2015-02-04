@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  Supremote
+//
+//  Created by Lambda Omega on 2/4/15.
+//  Copyright (c) 2015 Supremote. All rights reserved.
+//
+
+#ifndef Supremote_PrefixHeader_pch
+#define Supremote_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifndef DEBUG
+#define NSLog
+#endif
+
+#define ONLINE
+
+#ifdef ONLINE
+#define ROOT_URL @"https://www.supremote.com/"
+#define API_URL @"https://www.supremote.com/api/"
+#define SIGNUP_URL @"https://www.supremote.com/signup/"
+#else
+#define ROOT_URL @"http://localhost:8111/"
+#define API_URL @"http://localhost:8111/api/"
+#define SIGNUP_URL @"http://localhost:8111/signup/"
+#endif
+
+#endif

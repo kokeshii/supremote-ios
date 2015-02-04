@@ -19,6 +19,7 @@
 		8B2B36D11A6B278F00282A79 /* SPRemoteSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36D01A6B278F00282A79 /* SPRemoteSwitchCell.m */; };
 		8B2B36D41A6B2A5900282A79 /* SPRemoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36D31A6B2A5900282A79 /* SPRemoteTableViewController.m */; };
 		8B2B36D71A6D87C700282A79 /* SPRemoteActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B36D61A6D87C700282A79 /* SPRemoteActionCell.m */; };
+		8B59C8841A8213C3007DA6C3 /* supremote-logo-small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B59C8831A8213C3007DA6C3 /* supremote-logo-small@3x.png */; };
 		8B9E547D1A6990B800E0D8A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E547C1A6990B800E0D8A3 /* main.m */; };
 		8B9E54801A6990B800E0D8A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E547F1A6990B800E0D8A3 /* AppDelegate.m */; };
 		8B9E54861A6990B800E0D8A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E54841A6990B800E0D8A3 /* Main.storyboard */; };
@@ -35,8 +36,6 @@
 		8BD8E9CA1A6DC3F100D54940 /* SPMultipleChoiceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9C91A6DC3F100D54940 /* SPMultipleChoiceDelegate.m */; };
 		8BD8E9CD1A6DCB8F00D54940 /* SPPickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9CC1A6DCB8F00D54940 /* SPPickerDelegate.m */; };
 		8BD8E9D01A6EE3DF00D54940 /* SPRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8E9CF1A6EE3DF00D54940 /* SPRemote.m */; };
-		8BD8E9D31A705F8C00D54940 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9D11A705F8C00D54940 /* OpenSans-Bold.ttf */; };
-		8BD8E9D41A705F8C00D54940 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9D21A705F8C00D54940 /* OpenSans-Regular.ttf */; };
 		8BD8E9D91A706A4B00D54940 /* supremote-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9D61A706A4B00D54940 /* supremote-logo.png */; };
 		8BD8E9DA1A706A4B00D54940 /* supremote-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9D71A706A4B00D54940 /* supremote-logo@2x.png */; };
 		8BD8E9DB1A706A4B00D54940 /* supremote-logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8E9D81A706A4B00D54940 /* supremote-logo@3x.png */; };
@@ -80,6 +79,8 @@
 		8B2B36D31A6B2A5900282A79 /* SPRemoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteTableViewController.m; sourceTree = "<group>"; };
 		8B2B36D51A6D87C700282A79 /* SPRemoteActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemoteActionCell.h; sourceTree = "<group>"; };
 		8B2B36D61A6D87C700282A79 /* SPRemoteActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemoteActionCell.m; sourceTree = "<group>"; };
+		8B59C8831A8213C3007DA6C3 /* supremote-logo-small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supremote-logo-small@3x.png"; sourceTree = "<group>"; };
+		8B59C8851A821923007DA6C3 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8B9E54771A6990B800E0D8A3 /* Supremote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supremote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9E547B1A6990B800E0D8A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B9E547C1A6990B800E0D8A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,8 +107,6 @@
 		8BD8E9CC1A6DCB8F00D54940 /* SPPickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPickerDelegate.m; sourceTree = "<group>"; };
 		8BD8E9CE1A6EE3DF00D54940 /* SPRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRemote.h; sourceTree = "<group>"; };
 		8BD8E9CF1A6EE3DF00D54940 /* SPRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRemote.m; sourceTree = "<group>"; };
-		8BD8E9D11A705F8C00D54940 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
-		8BD8E9D21A705F8C00D54940 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		8BD8E9D61A706A4B00D54940 /* supremote-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supremote-logo.png"; sourceTree = "<group>"; };
 		8BD8E9D71A706A4B00D54940 /* supremote-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supremote-logo@2x.png"; sourceTree = "<group>"; };
 		8BD8E9D81A706A4B00D54940 /* supremote-logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supremote-logo@3x.png"; sourceTree = "<group>"; };
@@ -239,6 +238,7 @@
 				8B9E54891A6990B800E0D8A3 /* LaunchScreen.xib */,
 				8B9E547A1A6990B800E0D8A3 /* Supporting Files */,
 				8B2B36CD1A6B274B00282A79 /* Views */,
+				8B59C8851A821923007DA6C3 /* PrefixHeader.pch */,
 			);
 			path = Supremote;
 			sourceTree = "<group>";
@@ -313,8 +313,7 @@
 				8BCEC7D01A71CF9B0076A243 /* remote-icon.png */,
 				8BCEC7D11A71CF9B0076A243 /* remote-icon@2x.png */,
 				8BD8E9DF1A70715E00D54940 /* supremote-logo-small@2x.png */,
-				8BD8E9D11A705F8C00D54940 /* OpenSans-Bold.ttf */,
-				8BD8E9D21A705F8C00D54940 /* OpenSans-Regular.ttf */,
+				8B59C8831A8213C3007DA6C3 /* supremote-logo-small@3x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -396,6 +395,7 @@
 				TargetAttributes = {
 					8B9E54761A6990B800E0D8A3 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 34P526CM2H;
 					};
 					8B9E548F1A6990B900E0D8A3 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -433,14 +433,13 @@
 				8BCEC7CE1A71C8050076A243 /* icon@3x.png in Resources */,
 				8B2B36B21A69C71C00282A79 /* stylesheet.cas in Resources */,
 				8BCEC7D31A71CF9B0076A243 /* remote-icon.png in Resources */,
+				8B59C8841A8213C3007DA6C3 /* supremote-logo-small@3x.png in Resources */,
 				8B9E548B1A6990B800E0D8A3 /* LaunchScreen.xib in Resources */,
 				8BD8E9E11A70715E00D54940 /* supremote-logo-small@2x.png in Resources */,
 				8BD8E9DA1A706A4B00D54940 /* supremote-logo@2x.png in Resources */,
 				8BCEC7CD1A71C8050076A243 /* icon@2x.png in Resources */,
 				8BD8E9E01A70715E00D54940 /* supremote-logo-small.png in Resources */,
 				8BD8E9DB1A706A4B00D54940 /* supremote-logo@3x.png in Resources */,
-				8BD8E9D31A705F8C00D54940 /* OpenSans-Bold.ttf in Resources */,
-				8BD8E9D41A705F8C00D54940 /* OpenSans-Regular.ttf in Resources */,
 				8BCEC7D21A71CF9B0076A243 /* remote-icon@3x.png in Resources */,
 				8B9E54881A6990B800E0D8A3 /* Images.xcassets in Resources */,
 			);
@@ -634,6 +633,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = Supremote/PrefixHeader.pch;
 				INFOPLIST_FILE = Supremote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -646,6 +647,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = Supremote/PrefixHeader.pch;
 				INFOPLIST_FILE = Supremote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

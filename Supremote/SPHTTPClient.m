@@ -8,10 +8,7 @@
 
 #import "SPHTTPClient.h"
 
-#define DEV_OFFLINE_URL @"http://localhost:8111/api/"
-#define DEV_ONLINE_URL @"https:/www.supremote.com/api/"
 
-#define ROOT_URL DEV_OFFLINE_URL
 
 NSString * const SPHTTPClientLoggedOutNotification = @"SPHTTPClientLoggedOutNotification";
 
@@ -21,7 +18,7 @@ NSString * const SPHTTPClientLoggedOutNotification = @"SPHTTPClientLoggedOutNoti
     static SPHTTPClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[SPHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:ROOT_URL]];
+        _sharedClient = [[SPHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:API_URL]];
         _sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
     });
     
