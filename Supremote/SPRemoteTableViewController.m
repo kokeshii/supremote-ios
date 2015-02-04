@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *transitionKey;
 @property (nonatomic, strong) SPPickerDelegate *pickerDelegate;
 @property (nonatomic, weak) NSString *modifyingKey;
+@property (nonatomic, weak) UITextField *editingTextField;
 @end
 
 @implementation SPRemoteTableViewController
@@ -217,6 +218,8 @@
 
 - (void) didSelectLabelCell:(SPRemoteLabelCell *) labelCell fieldDictionary:(NSDictionary *)fieldDict fieldKey:(NSString *) fieldKey {
     
+    NSLog(@"Modifying Key: %@", self.modifyingKey);
+    
     RMPickerViewController *pickerVC = [RMPickerViewController pickerController];
     pickerVC.delegate = self;
     
@@ -299,6 +302,8 @@
     NSString *fieldKey = sectionFieldset[@"fields"][indexPath.row];
     NSDictionary *fieldDict = [self.remote fieldForKey:fieldKey];
 
+    [self.editingTextField resignFirstResponder];
+    
     self.modifyingKey = fieldKey;
     
     if ([cell isKindOfClass:[SPRemoteTextInputCell class]]) {
@@ -411,17 +416,23 @@
 #pragma mark - UITextFieldDelegate
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField {
-    
+    self.editingTextField = textField;
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField {
     
     [self.remote setCurrentValue:textField.text forKey:self.modifyingKey];
     self.modifyingKey = nil;
+    self.editingTextField = nil;
     textField.delegate = nil;
     textField.userInteractionEnabled = NO;
     [self.tableView reloadData];
     [self updateRemoteValues];
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 
