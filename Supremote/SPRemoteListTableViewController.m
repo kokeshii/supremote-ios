@@ -108,16 +108,20 @@ typedef NS_ENUM(NSInteger, SPRemoteListSection) {
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+   
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+        
     if (indexPath.section == SPRemoteListRemoteSection) {
-        NSDictionary *remote = self.remoteList[indexPath.row];
-        self.remoteId = remote[@"id"];
-        [self performSegueWithIdentifier:@"SPRemoteSegue" sender:nil];
+        if (self.remoteList.count != 0) {
+            NSDictionary *remote = self.remoteList[indexPath.row];
+            self.remoteId = remote[@"id"];
+            [self performSegueWithIdentifier:@"SPRemoteSegue" sender:nil];
+        }
     } else {
         // Logout button pressed
         [self performSegueWithIdentifier:@"SPUnwindToLoginSegue" sender:nil];
     }
+    
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -125,16 +129,21 @@ typedef NS_ENUM(NSInteger, SPRemoteListSection) {
     
     if (indexPath.section == SPRemoteListRemoteSection) {
         
-        SPRemoteEntryCell *cell = (SPRemoteEntryCell *)[tableView dequeueReusableCellWithIdentifier:@"SPRemoteEntryCell"];
-        
-        NSDictionary *remote = self.remoteList[indexPath.row];
-        NSDictionary *developer = remote[@"developer"];
-        NSDictionary *authUser = developer[@"auth_user"];
-        
-        cell.remoteNameLabel.text = remote[@"name"];
-        cell.developerNameLabel.text = [NSString stringWithFormat:@"@%@", authUser[@"username"]];
-        
-        return cell;
+        if (self.remoteList.count == 0) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SPNoRemotesLabel"];
+            return cell;
+        } else {
+            SPRemoteEntryCell *cell = (SPRemoteEntryCell *)[tableView dequeueReusableCellWithIdentifier:@"SPRemoteEntryCell"];
+            
+            NSDictionary *remote = self.remoteList[indexPath.row];
+            NSDictionary *developer = remote[@"developer"];
+            NSDictionary *authUser = developer[@"auth_user"];
+            
+            cell.remoteNameLabel.text = remote[@"name"];
+            cell.developerNameLabel.text = [NSString stringWithFormat:@"@%@", authUser[@"username"]];
+            
+            return cell;
+        }
         
     } else if(indexPath.section == SPRemoteListActionsSection) {
         
@@ -152,7 +161,11 @@ typedef NS_ENUM(NSInteger, SPRemoteListSection) {
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == SPRemoteListRemoteSection) {
-        return self.remoteList.count;
+        if (self.remoteList.count == 0) {
+            return 1;
+        } else {
+            return self.remoteList.count;
+        }
     } else if(section == SPRemoteListActionsSection) {
         return 1;
     }
