@@ -9,18 +9,27 @@
 #import "SPLoginViewController.h"
 
 #import <BFKit/UIColor+BFKit.h>
+#import <IQKeyboardManager/IQKeyboardReturnKeyHandler.h>
 
 
-@interface SPLoginViewController ()
+@interface SPLoginViewController () {
+   
+}
+
+
 
 @end
 
-@implementation SPLoginViewController
+
+@implementation SPLoginViewController {
+    IQKeyboardReturnKeyHandler *returnKeyHandler;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    returnKeyHandler = [[IQKeyboardReturnKeyHandler alloc] initWithViewController:self];
     
     [self setupPlaceholders];
     [self prepopulateFields];
@@ -45,6 +54,13 @@
         
     }
     
+    
+    
+}
+
+
+- (void) dealloc {
+    returnKeyHandler = nil;
 }
 
 
@@ -92,7 +108,7 @@
 
 - (void) openSignupURL {
     UIApplication *mySafari = [UIApplication sharedApplication];
-    NSURL *myURL = [[NSURL alloc]initWithString:@"http://localhost:8111/signup/"];
+    NSURL *myURL = [[NSURL alloc]initWithString:SIGNUP_URL];
     [mySafari openURL:myURL];
 }
 
